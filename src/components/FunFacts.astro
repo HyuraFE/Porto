@@ -1,0 +1,61 @@
+---
+/**
+ * Fun Facts Section - 3 fun facts tentang pemrograman
+ * Layout: 3-column grid dengan semi-transparent cards
+ * CSS scroll animation (no JS needed)
+ */
+
+const funFacts = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><path fill="currentColor" d="M68 168a12 12 0 0 1 8.49-3.53h103a12 12 0 0 1 8.49 20.49l-51.52 51.51a12 12 0 0 1-16.96 0l-51.5-51.51A12 12 0 0 1 68 168Zm88.49-80H53.51a12 12 0 0 1-8.49-20.49l51.52-51.54a12 12 0 0 1 16.96 0l51.49 51.52A12 12 0 0 1 156.49 88Z"/></svg>`,
+    title: "Pertama coding pakai Notepad",
+    description:
+      "Awal belajar HTML dan CSS langsung di Notepad tanpa IDE, tanpa syntax highlighting. Hasilnya? Halaman putih polos karena lupa tag <body>.",
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><path fill="currentColor" d="M144 180a16 16 0 1 1-16-16a16 16 0 0 1 16 16Zm92-52A108 108 0 1 1 128 20a108.12 108.12 0 0 1 108 108Zm-24 0a84 84 0 1 0-84 84a84.09 84.09 0 0 0 84-84Zm-84-64c-24.26 0-44 17.94-44 40a12 12 0 0 0 24 0c0-8.82 8.97-16 20-16s20 7.18 20 16s-8.97 16-20 16a12 12 0 0 0-12 12v8a12 12 0 0 0 24 0v-1.38c24.2-5.75 32-27.55 32-34.62c0-22.06-19.74-40-44-40Z"/></svg>`,
+    title: "Bug terlama: 6 jam karena typo",
+    description:
+      "Pernah debugging selama 6 jam hanya karena typo di nama variabel. Sejak itu selalu pakai IDE dengan autocomplete.",
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><path fill="currentColor" d="M128 24a104 104 0 1 0 104 104A104.11 104.11 0 0 0 128 24Zm-4 48a12 12 0 1 1-12 12a12 12 0 0 1 12-12Zm12 112a16 16 0 0 1-16-16v-40a8 8 0 0 1 0-16a16 16 0 0 1 16 16v40a8 8 0 0 1 0 16Z"/></svg>`,
+    title: "Lebih sering googling daripada coding",
+    description:
+      "Stack Overflow dan Google adalah sahabat terbaik. Kemampuan mencari solusi lebih penting daripada menghafal semua syntax.",
+  },
+];
+---
+
+<section class="py-20 md:py-28 bg-shuukura-100/50">
+  <div class="mx-auto max-w-6xl px-6">
+    <h2
+      class="text-3xl md:text-4xl font-bold font-display text-shuukura-900 text-center mb-14"
+    >
+      Fun Facts
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      {
+        funFacts.map((fact, i) => (
+          <div
+            class={`group rounded-xl border border-shuukura-200/60 bg-white/60 backdrop-blur-sm p-7 
+            hover:shadow-lg hover:shadow-shuukura-500/8 hover:-translate-y-1 
+            transition-all duration-300 ease-out
+            animate-fade-in-up animate-delay-${(i + 1) * 100}`}
+          >
+            <div class="mb-4 text-shuukura-500 group-hover:text-shuukura-600 transition-colors">
+              <Fragment set:html={fact.icon} />
+            </div>
+            <h3 class="text-lg font-semibold font-display text-shuukura-900 mb-2">
+              {fact.title}
+            </h3>
+            <p class="text-sm leading-relaxed text-shuukura-900/60 font-body">
+              {fact.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

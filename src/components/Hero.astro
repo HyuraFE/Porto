@@ -1,0 +1,59 @@
+---
+/**
+ * Hero Section - Perkenalan diri
+ * Background: gambar blur full-section
+ * Layout: teks kiri, foto portrait kanan (split asymmetric)
+ */
+---
+
+<section class="relative min-h-[100dvh] flex items-center overflow-hidden">
+  <!-- Blurred background image -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="/images/background.jpg"
+      alt=""
+      class="h-full w-full object-cover scale-105 blur-[6px]"
+      loading="eager"
+    />
+    <div class="absolute inset-0 bg-shuukura-50/50"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 mx-auto w-full max-w-6xl px-6 py-20 md:py-0">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+      <!-- Text side with frosted glass blur box -->
+      <div class="order-2 md:order-1">
+        <div class="rounded-2xl md:rounded-3xl border border-white/70 bg-white/45 p-6 sm:p-8 md:p-10 backdrop-blur-xl shadow-xl shadow-shuukura-500/5">
+          <p class="text-sm font-medium tracking-wide text-shuukura-500 mb-3 font-body uppercase">
+            Mahasiswa Sistem Informasi
+          </p>
+          <h1 class="text-4xl md:text-5xl font-bold tracking-tight leading-tight font-display text-shuukura-900 mb-5">
+            Halo, saya <br />
+            <span class="text-shuukura-500">Muhammad Arifin</span>
+          </h1>
+          <p class="text-base md:text-lg leading-relaxed text-shuukura-900/75 max-w-[50ch] font-body">
+            Seorang mahasiswa Sistem Informasi yang tertarik dengan dunia
+            pengembangan aplikasi dan teknologi. Senang membangun hal-hal
+            bermanfaat melalui kode, satu baris demi satu baris.
+          </p>
+        </div>
+      </div>
+
+      <!-- Photo side -->
+      <div class="order-1 md:order-2 flex justify-center md:justify-end">
+        <div class="relative">
+          <div
+            class="absolute -inset-3 rounded-2xl bg-shuukura-200/50 blur-md"
+          >
+          </div>
+          <img
+            src="/images/profile.png"
+            alt="Foto profil"
+            class="relative aspect-[3/4] w-64 md:w-72 rounded-2xl object-cover border-2 border-shuukura-200 shadow-lg shadow-shuukura-500/10"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
