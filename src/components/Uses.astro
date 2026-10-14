@@ -1,0 +1,194 @@
+---
+/**
+ * Uses / Setup Stack Section
+ * Detail hardware, sistem operasi, workflow tools, dan dotfiles
+ */
+
+const hardware = [
+  {
+    label: "Laptop Utama",
+    name: "Asus Vivobook Go 14",
+    detail: "Mesin andalan untuk kuliah, ngoding, dan daily driving",
+  },
+];
+
+const software = [
+  {
+    category: "Operating System",
+    name: "Arch Linux",
+    badge: "Rolling Release",
+  },
+  {
+    category: "Window Manager",
+    name: "Hyprland",
+    badge: "Wayland Compositor",
+  },
+  {
+    category: "Terminal Emulator",
+    name: "Kitty",
+    badge: "GPU-accelerated",
+  },
+  {
+    category: "Shell",
+    name: "Fish Shell",
+    badge: "Friendly Interactive",
+  },
+  {
+    category: "Code Editor",
+    name: "VSCodium",
+    badge: "Open Source",
+  },
+];
+
+// Ganti URL dengan link repository GitHub dotfiles kamu
+const dotfilesUrl = "https://github.com/caelestia-dots/shell";
+---
+
+<section class="py-20 md:py-28" id="uses">
+  <div class="mx-auto max-w-6xl px-6">
+    <div class="text-center mb-14">
+      <p class="text-sm font-medium tracking-wide text-shuukura-500 mb-2 font-body uppercase">
+        Workspace & Workflow
+      </p>
+      <h2 class="text-3xl md:text-4xl font-bold font-display text-shuukura-900">
+        Setup & Perkakas (Uses)
+      </h2>
+      <p class="text-base text-shuukura-900/60 font-body mt-3 max-w-[60ch] mx-auto">
+        Koleksi perangkat keras, sistem operasi, dan lingkungan pengembangan yang saya pakai setiap hari.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      {/* Kolom Kiri: Hardware & Dotfiles (5 cols di desktop) */}
+      <div class="lg:col-span-5 flex flex-col gap-6">
+        {/* Hardware Card */}
+        <div class="rounded-2xl border border-shuukura-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-shuukura-300 transition-all duration-300">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-shuukura-100 text-shuukura-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256">
+                <path fill="currentColor" d="M224 56H32a16 16 0 0 0-16 16v112a16 16 0 0 0 16 16h192a16 16 0 0 0 16-16V72a16 16 0 0 0-16-16Zm0 128H32V72h192v112Zm16 32a8 8 0 0 1-8 8H24a8 8 0 0 1 0-16h208a8 8 0 0 1 8 8Z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold font-display text-shuukura-900">
+                Hardware & Mesin
+              </h3>
+              <p class="text-xs text-shuukura-900/50 font-body">Perangkat fisik harian</p>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            {hardware.map((item) => (
+              <div class="rounded-xl bg-shuukura-50/70 p-4 border border-shuukura-100">
+                <span class="text-xs font-medium text-shuukura-500 uppercase tracking-wider block mb-1">
+                  {item.label}
+                </span>
+                <p class="text-base font-semibold text-shuukura-900 font-display">
+                  {item.name}
+                </p>
+                <p class="text-xs text-shuukura-900/60 font-body mt-1">
+                  {item.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dotfiles Card */}
+        <div class="rounded-2xl border border-shuukura-200/80 bg-gradient-to-br from-white via-shuukura-50/40 to-shuukura-100/50 p-6 shadow-sm hover:shadow-md hover:border-shuukura-300 transition-all duration-300 flex-1 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-shuukura-500 text-white shadow-sm shadow-shuukura-500/30">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256">
+                  <path fill="currentColor" d="M216 40H40a16 16 0 0 0-16 16v144a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a16 16 0 0 0-16-16ZM40 56h176v24H40Zm176 144H40V96h176v104Zm-96-56a8 8 0 0 1-8 8H72a8 8 0 0 1 0-16h40a8 8 0 0 1 8 8Zm64 0a8 8 0 0 1-8 8h-16a8 8 0 0 1 0-16h16a8 8 0 0 1 8 8Z"/>
+                </svg>
+              </div>
+              <div>
+                <h3 class="text-lg font-bold font-display text-shuukura-900">
+                  Dotfiles & Konfigurasi
+                </h3>
+                <p class="text-xs text-shuukura-900/50 font-body">Kustomisasi sistem personal</p>
+              </div>
+            </div>
+
+            <div class="mb-5">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-shuukura-200/60 text-shuukura-800 text-xs font-medium font-mono mb-2">
+                <span class="h-2 w-2 rounded-full bg-shuukura-500"></span>
+                Caelestia-Dots
+              </div>
+              <p class="text-sm leading-relaxed text-shuukura-900/70 font-body">
+                Kumpulan file konfigurasi dan kustomisasi untuk Hyprland, Kitty, Fish, serta tema desktop Linux saya.
+              </p>
+            </div>
+          </div>
+
+          <a
+            href={dotfilesUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group inline-flex items-center justify-between w-full rounded-xl bg-shuukura-500 hover:bg-shuukura-600 text-white px-4 py-3 text-sm font-medium font-body transition-all duration-200 shadow-sm shadow-shuukura-500/20"
+          >
+            <span>Lihat Repositori Dotfiles</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 256 256"
+              class="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+            >
+              <path
+                fill="currentColor"
+                d="M224 104a8 8 0 0 1-16 0V59.32l-66.33 66.34a8 8 0 0 1-11.32-11.32L196.68 48H152a8 8 0 0 1 0-16h64a8 8 0 0 1 8 8Zm-40 24a8 8 0 0 0-8 8v72H48V80h72a8 8 0 0 0 0-16H48a16 16 0 0 0-16 16v128a16 16 0 0 0 16 16h128a16 16 0 0 0 16-16v-72a8 8 0 0 0-8-8Z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      {/* Kolom Kanan: Software & Environment (7 cols di desktop) */}
+      <div class="lg:col-span-7">
+        <div class="rounded-2xl border border-shuukura-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-shuukura-300 transition-all duration-300 h-full flex flex-col">
+          <div class="flex items-center gap-3 mb-5">
+            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-shuukura-100 text-shuukura-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256">
+                <path fill="currentColor" d="M69.66 85.66a8 8 0 0 1 0-11.32l40-40a8 8 0 0 1 11.32 11.32L86.63 80l34.35 34.34a8 8 0 0 1-11.32 11.32ZM216 144h-80a8 8 0 0 0 0 16h80a8 8 0 0 0 0-16Zm-69.66-30.34a8 8 0 0 0 0 11.32l40 40a8 8 0 0 0 11.32-11.32L162.63 120l34.35-34.34a8 8 0 0 0-11.32-11.32Z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold font-display text-shuukura-900">
+                Software & Lingkungan Kerja
+              </h3>
+              <p class="text-xs text-shuukura-900/50 font-body">Distro, shell, dan alat pengembangan</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 flex-1">
+            {software.map((item) => (
+              <div class="rounded-xl border border-shuukura-100 bg-shuukura-50/50 p-4 hover:bg-shuukura-100/60 hover:border-shuukura-200 transition-colors">
+                <span class="text-[11px] font-medium text-shuukura-500 uppercase tracking-wider block mb-1 font-body">
+                  {item.category}
+                </span>
+                <p class="text-base font-bold text-shuukura-900 font-display">
+                  {item.name}
+                </p>
+                <span class="inline-block mt-2 text-[11px] font-medium text-shuukura-900/60 px-2 py-0.5 rounded-md bg-white/80 border border-shuukura-200/50 font-body">
+                  {item.badge}
+                </span>
+              </div>
+            ))}
+
+            {/* Extra decorative info tile */}
+            <div class="rounded-xl border border-dashed border-shuukura-200/80 bg-white p-4 flex flex-col justify-center">
+              <span class="text-[11px] font-medium text-shuukura-500 uppercase tracking-wider block mb-1 font-body">
+                Filosofi Setup
+              </span>
+              <p class="text-xs leading-relaxed text-shuukura-900/65 font-body">
+                Ringan, minimalis, dan berbasis keyboard shortcut untuk alur kerja yang fokus dan efisien.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
