@@ -1,0 +1,27 @@
+---
+// ponytail: static 3-link bar; add mobile hamburger drawer when links count > 4
+const navLinks = [
+  { label: "Proyek", href: "#proyek" },
+  { label: "Setup", href: "#setup" },
+  { label: "Kontak", href: "#kontak" },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4">
+  <nav class="mx-auto max-w-6xl flex items-center justify-between rounded-2xl border border-white/60 bg-white/70 px-5 py-3 shadow-lg shadow-shuukura-500/5 backdrop-blur-md">
+    <a href="#" class="font-display font-bold text-lg text-shuukura-900 hover:text-shuukura-500 transition-colors">
+      Arifin<span class="text-shuukura-500">.</span>
+    </a>
+    <ul class="flex items-center gap-6 text-sm font-medium font-body text-shuukura-900/80">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a href={link.href} class="hover:text-shuukura-500 transition-colors">
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
