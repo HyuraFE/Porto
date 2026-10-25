@@ -39,19 +39,17 @@ const projects = [
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       {
-        projects.map((project, i) => (
+        projects.map((project) => (
           <a
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            class={`glass group flex items-center justify-between rounded-2xl p-6
-            hover:-translate-y-1 hover:border-white hover:bg-white/70
-            transition-all duration-300 ease-out
-            animate-fade-in-up animate-delay-${(i + 1) * 100}`}
+            class="glass glass-interactive group flex items-center justify-between rounded-2xl p-6"
           >
             <div>
-              <h3 class="text-lg font-semibold font-display text-shuukura-900 group-hover:text-shuukura-500 transition-colors">
+              <h3 class="text-lg font-semibold font-display text-shuukura-900 group-hover:text-shuukura-600 transition-colors">
                 {project.name}
+                <span class="sr-only"> (buka di tab baru)</span>
               </h3>
               <p class="text-sm text-shuukura-900/70 font-body mt-1">
                 {project.description}
@@ -59,7 +57,7 @@ const projects = [
             </div>
 
             {/* Arrow icon - Phosphor ArrowSquareOut style */}
-            <div class="ml-4 flex-shrink-0 text-shuukura-400 group-hover:text-shuukura-500 transition-colors">
+            <div class="ml-4 flex-shrink-0 text-shuukura-400 group-hover:text-shuukura-600 transition-colors">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="22"

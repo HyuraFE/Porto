@@ -37,14 +37,11 @@ const funFacts = [
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
       {
-        funFacts.map((fact, i) => (
+        funFacts.map((fact) => (
           <div
-            class={`glass group rounded-2xl p-7
-            hover:-translate-y-1 hover:bg-white/65
-            transition-all duration-300 ease-out
-            animate-fade-in-up animate-delay-${(i + 1) * 100}`}
+            class="glass glass-interactive group rounded-2xl p-7"
           >
-            <div class="mb-4 text-shuukura-500 group-hover:text-shuukura-600 transition-colors">
+            <div class="mb-4 text-shuukura-600 group-hover:text-shuukura-700 transition-colors">
               <Fragment set:html={fact.icon} />
             </div>
             <h3 class="text-lg font-semibold font-display text-shuukura-900 mb-2">

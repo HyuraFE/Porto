@@ -22,21 +22,21 @@
         decoding="async"
       />
     </picture>
-    <div class="absolute inset-0 bg-gradient-to-b from-shuukura-50/30 via-shuukura-50/40 to-[#e7ebfb]"></div>
+    <div class="hero-overlay absolute inset-0"></div>
   </div>
 
   <!-- Content -->
   <div class="relative z-10 mx-auto w-full max-w-6xl px-6 py-20 md:py-0">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
       <!-- Text side with frosted glass blur box -->
-      <div class="order-2 md:order-1">
+      <div class="order-2 md:order-1 animate-fade-in-up">
         <div class="glass rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-10">
-          <p class="text-sm font-medium tracking-wide text-shuukura-500 mb-3 font-body uppercase">
+          <p class="text-sm font-semibold tracking-wide text-shuukura-700 mb-3 font-body uppercase">
             Mahasiswa Sistem Informasi
           </p>
-          <h1 class="text-4xl md:text-5xl font-bold tracking-tight leading-tight font-display text-shuukura-900 mb-5">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight font-display text-shuukura-900 mb-5">
             Halo, saya <br />
-            <span class="text-shuukura-500">Muhammad Arifin</span>
+            <span class="text-shuukura-600">Muhammad Arifin</span>
           </h1>
           <p class="text-base md:text-lg leading-relaxed text-shuukura-900/75 max-w-[50ch] font-body">
             Seorang mahasiswa Sistem Informasi yang tertarik dengan dunia
@@ -47,7 +47,7 @@
           <div class="mt-8">
             <a
               href="#proyek"
-              class="inline-flex items-center gap-2 rounded-xl bg-shuukura-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-shuukura-500/25 transition-all duration-200 hover:bg-shuukura-600 hover:shadow-xl hover:shadow-shuukura-500/35 hover:-translate-y-0.5 active:translate-y-0 font-body"
+              class="inline-flex items-center gap-2 rounded-xl bg-shuukura-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-shuukura-600/25 transition-all duration-200 hover:bg-shuukura-700 hover:shadow-xl hover:shadow-shuukura-600/35 hover:-translate-y-0.5 active:translate-y-0 font-body"
             >
               Lihat Proyek
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" fill="currentColor">
@@ -59,7 +59,7 @@
       </div>
 
       <!-- Photo side -->
-      <div class="order-1 md:order-2 flex justify-center md:justify-end">
+      <div class="order-1 md:order-2 flex justify-center md:justify-end animate-fade-in-up animate-delay-200">
         <div class="relative">
           <div class="glass absolute -inset-3 rounded-[1.75rem]"></div>
           <picture>
@@ -69,6 +69,7 @@
               alt="Foto profil Muhammad Arifin"
               width="288"
               height="384"
+              sizes="(max-width: 768px) 256px, 288px"
               class="relative aspect-[3/4] w-64 md:w-72 rounded-2xl object-cover"
               loading="eager"
               fetchpriority="high"

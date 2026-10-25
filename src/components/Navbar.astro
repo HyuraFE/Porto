@@ -7,16 +7,16 @@ const navLinks = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4">
-  <nav class="glass mx-auto max-w-6xl flex items-center justify-between rounded-2xl px-5 py-3">
-    <a href="#" class="font-display font-bold text-lg text-shuukura-900 hover:text-shuukura-500 transition-colors">
-      Arifin<span class="text-shuukura-500">.</span>
+<header class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 py-3 sm:py-4">
+  <nav class="glass mx-auto max-w-6xl flex items-center justify-between rounded-2xl px-4 sm:px-5 py-2.5 sm:py-3">
+    <a href="#" class="font-display font-bold text-base sm:text-lg text-shuukura-900 hover:text-shuukura-600 transition-colors">
+      Arifin<span class="text-shuukura-600">.</span>
     </a>
-    <ul class="flex items-center gap-6 text-sm font-medium font-body text-shuukura-900/80">
+    <ul class="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm font-medium font-body text-shuukura-900/80">
       {
         navLinks.map((link) => (
           <li>
-            <a href={link.href} class="hover:text-shuukura-500 transition-colors">
+            <a href={link.href} class="hover:text-shuukura-600 transition-colors py-1 px-1 sm:px-1.5 inline-block">
               {link.label}
             </a>
           </li>
