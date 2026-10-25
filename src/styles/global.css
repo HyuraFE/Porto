@@ -4,7 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+:root,
+:root[data-theme="light"] {
   --color-shuukura-50: 240 244 248;
   --color-shuukura-100: 226 232 240;
   --color-shuukura-200: 199 213 237;
@@ -35,8 +36,39 @@
   --hero-overlay-end: #e7ebfb;
 }
 
+:root[data-theme="dark"] {
+  --color-shuukura-50: 15 23 42;
+  --color-shuukura-100: 30 41 59;
+  --color-shuukura-200: 51 65 85;
+  --color-shuukura-300: 71 85 105;
+  --color-shuukura-400: 148 163 184;
+  --color-shuukura-500: 165 180 252;
+  --color-shuukura-600: 99 102 241;
+  --color-shuukura-700: 165 180 252;
+  --color-shuukura-800: 226 232 240;
+  --color-shuukura-900: 241 245 249;
+
+  --bg-primary: #0a0e1a;
+  --bg-secondary: #0f1629;
+  --accent: #818cf8;
+  --accent-soft: #1e1b4b;
+
+  --glass-fill: rgb(15 23 42 / 0.68);
+  --glass-border: rgb(255 255 255 / 0.14);
+  --glass-shadow: 0 24px 50px -25px rgb(0 0 0 / 0.85);
+  --glass-rim: rgb(255 255 255 / 0.22);
+  --glass-chroma: rgb(129 140 248 / 0.18);
+  --glass-hover-bg: rgb(30 41 59 / 0.85);
+  --glass-inset-fill: rgb(255 255 255 / 0.05);
+  --glass-inset-border: rgb(255 255 255 / 0.1);
+
+  --hero-overlay-start: rgb(10 14 26 / 0.65);
+  --hero-overlay-mid: rgb(10 14 26 / 0.8);
+  --hero-overlay-end: #0a0e1a;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --color-shuukura-50: 15 23 42;
     --color-shuukura-100: 30 41 59;
     --color-shuukura-200: 51 65 85;
@@ -82,8 +114,15 @@ body {
     linear-gradient(135deg, #edf0ff 0%, #e7ebfb 48%, #dce5fa 100%);
 }
 
+:root[data-theme="dark"] body {
+  background:
+    radial-gradient(circle at 8% 12%, rgb(49 46 129 / 0.45), transparent 32rem),
+    radial-gradient(circle at 90% 38%, rgb(88 28 135 / 0.35), transparent 30rem),
+    linear-gradient(135deg, #0a0e1a 0%, #0d1424 50%, #080c16 100%);
+}
+
 @media (prefers-color-scheme: dark) {
-  body {
+  :root:not([data-theme="light"]) body {
     background:
       radial-gradient(circle at 8% 12%, rgb(49 46 129 / 0.45), transparent 32rem),
       radial-gradient(circle at 90% 38%, rgb(88 28 135 / 0.35), transparent 30rem),

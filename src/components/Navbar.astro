@@ -12,16 +12,64 @@ const navLinks = [
     <a href="#" class="font-display font-bold text-base sm:text-lg text-shuukura-900 hover:text-shuukura-600 transition-colors">
       Arifin<span class="text-shuukura-600">.</span>
     </a>
-    <ul class="flex items-center gap-3 sm:gap-6 text-xs sm:text-sm font-medium font-body text-shuukura-900/80">
-      {
-        navLinks.map((link) => (
-          <li>
-            <a href={link.href} class="hover:text-shuukura-600 transition-colors py-1 px-1 sm:px-1.5 inline-block">
-              {link.label}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+    <div class="flex items-center gap-2 sm:gap-4">
+      <ul class="flex items-center gap-2.5 sm:gap-6 text-xs sm:text-sm font-medium font-body text-shuukura-900/80">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a href={link.href} class="hover:text-shuukura-600 transition-colors py-1 px-1 sm:px-1.5 inline-block">
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <button
+        id="theme-toggle"
+        type="button"
+        aria-label="Ganti mode tema (terang/gelap)"
+        class="glass-inset flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl text-shuukura-700 hover:text-shuukura-900 transition-colors"
+      >
+        <svg id="theme-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="hidden">
+          <path fill="currentColor" d="M120 40V16a8 8 0 0 1 16 0v24a8 8 0 0 1-16 0Zm72 88a64 64 0 1 1-64-64a64.07 64.07 0 0 1 64 64Zm-16 0a48 48 0 1 0-48 48a48.05 48.05 0 0 0 48-48ZM58.34 69.66a8 8 0 0 0 11.32-11.32l-16-16a8 8 0 0 0-11.32 11.32Zm139.32 116.68a8 8 0 0 0-11.32 11.32l16 16a8 8 0 0 0 11.32-11.32ZM40 120H16a8 8 0 0 0 0 16h24a8 8 0 0 0 0-16Zm176 0h24a8 8 0 0 0 0 16h-24a8 8 0 0 0 0-16ZM69.66 186.34l-16 16a8 8 0 0 0 11.32 11.32l16-16a8 8 0 0 0-11.32-11.32Zm128-128a8 8 0 0 0-11.32 0l-16 16a8 8 0 0 0 11.32 11.32l16-16a8 8 0 0 0 0-11.32ZM120 216v24a8 8 0 0 0 16 0v-24a8 8 0 0 0-16 0Z"/>
+        </svg>
+        <svg id="theme-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="hidden">
+          <path fill="currentColor" d="M216.71 152.6A96 96 0 0 1 103.4 39.29a8 8 0 0 0-10.13-10.13A112 112 0 1 0 226.84 162.73a8 8 0 0 0-10.13-10.13Zm-15.58 20.37A96.1 96.1 0 0 1 83 54.87a96 96 0 1 0 118.13 118.1Z"/>
+        </svg>
+      </button>
+    </div>
   </nav>
 </header>
+
+<script is:inline>
+  function setupThemeToggle() {
+    const btn = document.getElementById("theme-toggle");
+    const sun = document.getElementById("theme-sun");
+    const moon = document.getElementById("theme-moon");
+    if (!btn || !sun || !moon) return;
+
+    function updateIcons() {
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      if (isDark) {
+        sun.classList.remove("hidden");
+        moon.classList.add("hidden");
+      } else {
+        sun.classList.add("hidden");
+        moon.classList.remove("hidden");
+      }
+    }
+
+    updateIcons();
+
+    btn.onclick = () => {
+      const current = document.documentElement.getAttribute("data-theme");
+      const next = current === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+      updateIcons();
+    };
+  }
+  setupThemeToggle();
+  document.addEventListener("astro:after-swap", setupThemeToggle);
+</script>

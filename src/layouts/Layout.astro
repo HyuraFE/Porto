@@ -29,6 +29,14 @@ const {
     />
     <link rel="preload" as="image" href="/images/profile.webp" type="image/webp" fetchpriority="high" />
     <title>{title}</title>
+    <script is:inline>
+      const theme = (() => {
+        const stored = typeof localStorage !== "undefined" && localStorage.getItem("theme");
+        if (stored) return stored;
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      })();
+      document.documentElement.setAttribute("data-theme", theme);
+    </script>
   </head>
   <body class="min-h-screen text-shuukura-900 antialiased">
     <Navbar />
