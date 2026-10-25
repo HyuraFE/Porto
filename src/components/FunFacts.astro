@@ -27,7 +27,7 @@ const funFacts = [
 ];
 ---
 
-<section class="py-20 md:py-28 bg-shuukura-100/50">
+<section class="py-20 md:py-28">
   <div class="mx-auto max-w-6xl px-6">
     <h2
       class="text-3xl md:text-4xl font-bold font-display text-shuukura-900 text-center mb-14"
@@ -39,8 +39,8 @@ const funFacts = [
       {
         funFacts.map((fact, i) => (
           <div
-            class={`group rounded-xl border border-shuukura-200/60 bg-white/60 backdrop-blur-sm p-7 
-            hover:shadow-lg hover:shadow-shuukura-500/8 hover:-translate-y-1 
+            class={`glass group rounded-2xl p-7
+            hover:-translate-y-1 hover:bg-white/65
             transition-all duration-300 ease-out
             animate-fade-in-up animate-delay-${(i + 1) * 100}`}
           >

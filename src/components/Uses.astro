@@ -40,16 +40,12 @@ const software = [
   },
 ];
 
-// Ganti URL dengan link repository GitHub dotfiles kamu
-const dotfilesUrl = "https://github.com/caelestia-dots/shell";
+const dotfilesUrl = "https://github.com/HyuraFE/dotfiles";
 ---
 
 <section class="py-20 md:py-28" id="setup">
   <div class="mx-auto max-w-6xl px-6">
     <div class="text-center mb-14">
-      <p class="text-sm font-medium tracking-wide text-shuukura-500 mb-2 font-body uppercase">
-        Ruang Kerja & Alur Kerja
-      </p>
       <h2 class="text-3xl md:text-4xl font-bold font-display text-shuukura-900">
         Setup & Lingkungan Kerja
       </h2>
@@ -59,9 +55,9 @@ const dotfilesUrl = "https://github.com/caelestia-dots/shell";
       {/* Kolom Kiri: Hardware & Dotfiles (5 cols di desktop) */}
       <div class="lg:col-span-5 flex flex-col gap-6">
         {/* Hardware Card */}
-        <div class="rounded-2xl border border-shuukura-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-shuukura-300 transition-all duration-300">
+        <div class="glass rounded-2xl p-6 transition-colors duration-300 hover:bg-white/65">
           <div class="flex items-center gap-3 mb-5">
-            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-shuukura-100 text-shuukura-500">
+            <div class="glass-inset flex h-10 w-10 items-center justify-center rounded-xl text-shuukura-600">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256">
                 <path fill="currentColor" d="M224 56H32a16 16 0 0 0-16 16v112a16 16 0 0 0 16 16h192a16 16 0 0 0 16-16V72a16 16 0 0 0-16-16Zm0 128H32V72h192v112Zm16 32a8 8 0 0 1-8 8H24a8 8 0 0 1 0-16h208a8 8 0 0 1 8 8Z"/>
               </svg>
@@ -70,20 +66,20 @@ const dotfilesUrl = "https://github.com/caelestia-dots/shell";
               <h3 class="text-lg font-bold font-display text-shuukura-900">
                 Hardware & Mesin
               </h3>
-              <p class="text-xs text-shuukura-900/65 font-body">Perangkat fisik harian</p>
+              <p class="text-xs text-shuukura-900/75 font-body">Perangkat fisik harian</p>
             </div>
           </div>
 
           <div class="space-y-4">
             {hardware.map((item) => (
-              <div class="rounded-xl bg-shuukura-50/70 p-4 border border-shuukura-100">
+              <div class="glass-inset rounded-xl p-4">
                 <span class="text-xs font-medium text-shuukura-500 uppercase tracking-wider block mb-1">
                   {item.label}
                 </span>
                 <p class="text-base font-semibold text-shuukura-900 font-display">
                   {item.name}
                 </p>
-                <p class="text-xs text-shuukura-900/60 font-body mt-1">
+                <p class="text-xs text-shuukura-900/70 font-body mt-1">
                   {item.detail}
                 </p>
               </div>
@@ -92,7 +88,7 @@ const dotfilesUrl = "https://github.com/caelestia-dots/shell";
         </div>
 
         {/* Dotfiles Card */}
-        <div class="rounded-2xl border border-shuukura-200/80 bg-gradient-to-br from-white via-shuukura-50/40 to-shuukura-100/50 p-6 shadow-sm hover:shadow-md hover:border-shuukura-300 transition-all duration-300 flex-1 flex flex-col justify-between">
+        <div class="glass rounded-2xl p-6 transition-colors duration-300 hover:bg-white/65 flex-1 flex flex-col justify-between">
           <div>
             <div class="flex items-center gap-3 mb-4">
               <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-shuukura-500 text-white shadow-sm shadow-shuukura-500/30">
@@ -104,12 +100,12 @@ const dotfilesUrl = "https://github.com/caelestia-dots/shell";
                 <h3 class="text-lg font-bold font-display text-shuukura-900">
                   Dotfiles & Konfigurasi
                 </h3>
-                <p class="text-xs text-shuukura-900/65 font-body">Kustomisasi sistem personal</p>
+                <p class="text-xs text-shuukura-900/75 font-body">Kustomisasi sistem personal</p>
               </div>
             </div>
 
             <div class="mb-5">
-              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-shuukura-200/60 text-shuukura-800 text-xs font-medium font-mono mb-2">
+              <div class="glass-inset inline-flex items-center gap-2 px-3 py-1 rounded-full text-shuukura-800 text-xs font-medium font-body mb-2">
                 <span class="h-2 w-2 rounded-full bg-shuukura-500"></span>
                 Caelestia-Dots
               </div>
@@ -144,9 +140,9 @@ const dotfilesUrl = "https://github.com/caelestia-dots/shell";
 
       {/* Kolom Kanan: Software & Environment (7 cols di desktop) */}
       <div class="lg:col-span-7">
-        <div class="rounded-2xl border border-shuukura-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-shuukura-300 transition-all duration-300 h-full flex flex-col">
+        <div class="glass rounded-2xl p-6 h-full flex flex-col">
           <div class="flex items-center gap-3 mb-5">
-            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-shuukura-100 text-shuukura-500">
+            <div class="glass-inset flex h-10 w-10 items-center justify-center rounded-xl text-shuukura-600">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 256 256">
                 <path fill="currentColor" d="M69.66 85.66a8 8 0 0 1 0-11.32l40-40a8 8 0 0 1 11.32 11.32L86.63 80l34.35 34.34a8 8 0 0 1-11.32 11.32ZM216 144h-80a8 8 0 0 0 0 16h80a8 8 0 0 0 0-16Zm-69.66-30.34a8 8 0 0 0 0 11.32l40 40a8 8 0 0 0 11.32-11.32L162.63 120l34.35-34.34a8 8 0 0 0-11.32-11.32Z"/>
               </svg>
@@ -155,31 +151,31 @@ const dotfilesUrl = "https://github.com/caelestia-dots/shell";
               <h3 class="text-lg font-bold font-display text-shuukura-900">
                 Software & Lingkungan Kerja
               </h3>
-              <p class="text-xs text-shuukura-900/65 font-body">Distro, shell, dan alat pengembangan</p>
+              <p class="text-xs text-shuukura-900/75 font-body">Distro, shell, dan alat pengembangan</p>
             </div>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 flex-1">
             {software.map((item) => (
-              <div class="rounded-xl border border-shuukura-100 bg-shuukura-50/50 p-4 hover:bg-shuukura-100/60 hover:border-shuukura-200 transition-colors">
+              <div class="glass-inset rounded-xl p-4 transition-colors hover:bg-white/60">
                 <span class="text-[11px] font-medium text-shuukura-500 uppercase tracking-wider block mb-1 font-body">
                   {item.category}
                 </span>
                 <p class="text-base font-bold text-shuukura-900 font-display">
                   {item.name}
                 </p>
-                <span class="inline-block mt-2 text-[11px] font-medium text-shuukura-900/60 px-2 py-0.5 rounded-md bg-white/80 border border-shuukura-200/50 font-body">
+                <span class="inline-block mt-2 text-[11px] font-medium text-shuukura-900/70 px-2 py-0.5 rounded-md bg-white/60 border border-white/70 font-body">
                   {item.badge}
                 </span>
               </div>
             ))}
 
             {/* Extra decorative info tile */}
-            <div class="rounded-xl border border-dashed border-shuukura-200/80 bg-white p-4 flex flex-col justify-center">
+            <div class="rounded-xl border border-dashed border-white/80 bg-white/25 p-4 flex flex-col justify-center">
               <span class="text-[11px] font-medium text-shuukura-500 uppercase tracking-wider block mb-1 font-body">
                 Filosofi Setup
               </span>
-              <p class="text-xs leading-relaxed text-shuukura-900/65 font-body">
+              <p class="text-xs leading-relaxed text-shuukura-900/75 font-body">
                 Ringan, minimalis, dan berbasis keyboard shortcut untuk alur kerja yang fokus dan efisien.
               </p>
             </div>

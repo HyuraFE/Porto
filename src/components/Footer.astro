@@ -20,9 +20,9 @@ const socials = [
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-shuukura-100 border-t border-shuukura-200/60" id="kontak">
+<footer class="px-4 sm:px-6 pb-6" id="kontak">
   <div
-    class="mx-auto max-w-6xl px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4"
+    class="glass mx-auto max-w-6xl rounded-2xl px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4"
   >
     <p class="text-sm text-shuukura-900/70 font-body">
       &copy; {currentYear} Muhammad Arifin. Built with Astro.
@@ -36,7 +36,7 @@ const currentYear = new Date().getFullYear();
             target="_blank"
             rel="noopener noreferrer"
             aria-label={social.name}
-            class="flex h-11 w-11 items-center justify-center rounded-xl text-shuukura-600 hover:text-shuukura-900 hover:bg-shuukura-200/60 transition-colors"
+            class="flex h-11 w-11 items-center justify-center rounded-xl text-shuukura-600 hover:text-shuukura-900 hover:bg-white/60 transition-colors"
           >
             <Fragment set:html={social.icon} />
           </a>

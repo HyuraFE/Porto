@@ -9,13 +9,20 @@
 <section class="relative min-h-[100dvh] flex items-center overflow-hidden">
   <!-- Blurred background image -->
   <div class="absolute inset-0 z-0">
-    <img
-      src="/images/background.jpg"
-      alt=""
-      class="h-full w-full object-cover scale-105 blur-[6px]"
-      loading="eager"
-    />
-    <div class="absolute inset-0 bg-shuukura-50/50"></div>
+    <!-- ponytail: picture tag with static webp conversion; upgrade to astro:assets if dynamic responsive variants needed -->
+    <picture>
+      <source srcset="/images/background.webp" type="image/webp" />
+      <img
+        src="/images/background.jpg"
+        alt=""
+        width="736"
+        height="417"
+        class="h-full w-full object-cover scale-105 blur-[6px]"
+        loading="eager"
+        decoding="async"
+      />
+    </picture>
+    <div class="absolute inset-0 bg-gradient-to-b from-shuukura-50/30 via-shuukura-50/40 to-[#e7ebfb]"></div>
   </div>
 
   <!-- Content -->
@@ -23,7 +30,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
       <!-- Text side with frosted glass blur box -->
       <div class="order-2 md:order-1">
-        <div class="rounded-2xl md:rounded-3xl border border-white/70 bg-white/45 p-6 sm:p-8 md:p-10 backdrop-blur-xl shadow-xl shadow-shuukura-500/5">
+        <div class="glass rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-10">
           <p class="text-sm font-medium tracking-wide text-shuukura-500 mb-3 font-body uppercase">
             Mahasiswa Sistem Informasi
           </p>
@@ -54,16 +61,20 @@
       <!-- Photo side -->
       <div class="order-1 md:order-2 flex justify-center md:justify-end">
         <div class="relative">
-          <div
-            class="absolute -inset-3 rounded-2xl bg-shuukura-200/50 blur-md"
-          >
-          </div>
-          <img
-            src="/images/profile.png"
-            alt="Foto profil Muhammad Arifin"
-            class="relative aspect-[3/4] w-64 md:w-72 rounded-2xl object-cover border-2 border-shuukura-200 shadow-lg shadow-shuukura-500/10"
-            loading="eager"
-          />
+          <div class="glass absolute -inset-3 rounded-[1.75rem]"></div>
+          <picture>
+            <source srcset="/images/profile.webp" type="image/webp" />
+            <img
+              src="/images/profile.png"
+              alt="Foto profil Muhammad Arifin"
+              width="288"
+              height="384"
+              class="relative aspect-[3/4] w-64 md:w-72 rounded-2xl object-cover"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
         </div>
       </div>
     </div>
