@@ -1,6 +1,5 @@
 ---
 import "../styles/global.css";
-import Navbar from "../components/Navbar.astro";
 
 interface Props {
   title?: string;
@@ -8,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = "Portfolio - Mahasiswa Sistem Informasi",
-  description = "Website portofolio personal mahasiswa Sistem Informasi",
+  title = "Arifin. — Portfolio",
+  description = "Muhammad Arifin — Information Systems Undergraduate. Practical builder, tool maker, daily Linux driver.",
 } = Astro.props;
 ---
 
@@ -17,29 +16,22 @@ const {
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <!-- ponytail: google fonts cdn with preconnect; upgrade to fontsubsets or local woff2 if build step supports it -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="preload" as="image" href="/images/profile.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/profile.webp" type="image/webp" />
     <title>{title}</title>
-    <script is:inline>
-      const theme = (() => {
-        const stored = typeof localStorage !== "undefined" && localStorage.getItem("theme");
-        if (stored) return stored;
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-      })();
-      document.documentElement.setAttribute("data-theme", theme);
-    </script>
   </head>
-  <body class="min-h-screen text-shuukura-900 antialiased">
-    <Navbar />
-    <slot />
+  <body>
+    <div class="grid-lines" aria-hidden="true"></div>
+    <main class="page">
+      <slot />
+    </main>
   </body>
 </html>
