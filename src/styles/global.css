@@ -4,16 +4,16 @@
 
 :root {
   --color-white: #FFFFFF;
-  --color-black: #0A0A0A;
+  --color-black: #03045e;
   --color-blue: #0022FF;
   --color-amber: #FF5500;
   --color-line: #0A0A0A;
   --color-bg: #FFFFFF;
   --color-surface: #FFFFFF;
-  --color-surface-contrast: #0A0A0A;
+  --color-surface-contrast: #03045e;
   --color-text-on-contrast: #FFFFFF;
-  --color-text: #0A0A0A;
-  --color-text-muted: #333333;
+  --color-text: #03045e;
+  --color-text-muted: #1d3557;
   --font-display: 'Archivo', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-body: 'Inter', sans-serif;
