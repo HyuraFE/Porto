@@ -1,75 +1,108 @@
 ---
-// ponytail: static 3-link bar; add mobile hamburger drawer when links count > 4
-const navLinks = [
-  { label: "Proyek", href: "#proyek" },
-  { label: "Setup", href: "#setup" },
-  { label: "Kontak", href: "#kontak" },
-];
+/**
+ * Header / Titlebar — Experimental Jetset
+ * Name headline + role meta + raw ruled action links
+ */
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 py-3 sm:py-4">
-  <nav class="glass mx-auto max-w-6xl flex items-center justify-between rounded-2xl px-4 sm:px-5 py-2.5 sm:py-3">
-    <a href="#" class="font-display font-bold text-base sm:text-lg text-shuukura-900 hover:text-shuukura-600 transition-colors">
-      Arifin<span class="text-shuukura-600">.</span>
-    </a>
-    <div class="flex items-center gap-2 sm:gap-4">
-      <ul class="flex items-center gap-2.5 sm:gap-6 text-xs sm:text-sm font-medium font-body text-shuukura-900/80">
-        {
-          navLinks.map((link) => (
-            <li>
-              <a href={link.href} class="hover:text-shuukura-600 transition-colors py-1 px-1 sm:px-1.5 inline-block">
-                {link.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-
-      <button
-        id="theme-toggle"
-        type="button"
-        aria-label="Ganti mode tema (terang/gelap)"
-        class="glass-inset flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-xl text-shuukura-700 hover:text-shuukura-900 transition-colors"
-      >
-        <svg id="theme-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="hidden">
-          <path fill="currentColor" d="M120 40V16a8 8 0 0 1 16 0v24a8 8 0 0 1-16 0Zm72 88a64 64 0 1 1-64-64a64.07 64.07 0 0 1 64 64Zm-16 0a48 48 0 1 0-48 48a48.05 48.05 0 0 0 48-48ZM58.34 69.66a8 8 0 0 0 11.32-11.32l-16-16a8 8 0 0 0-11.32 11.32Zm139.32 116.68a8 8 0 0 0-11.32 11.32l16 16a8 8 0 0 0 11.32-11.32ZM40 120H16a8 8 0 0 0 0 16h24a8 8 0 0 0 0-16Zm176 0h24a8 8 0 0 0 0 16h-24a8 8 0 0 0 0-16ZM69.66 186.34l-16 16a8 8 0 0 0 11.32 11.32l16-16a8 8 0 0 0-11.32-11.32Zm128-128a8 8 0 0 0-11.32 0l-16 16a8 8 0 0 0 11.32 11.32l16-16a8 8 0 0 0 0-11.32ZM120 216v24a8 8 0 0 0 16 0v-24a8 8 0 0 0-16 0Z"/>
-        </svg>
-        <svg id="theme-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" class="hidden">
-          <path fill="currentColor" d="M216.71 152.6A96 96 0 0 1 103.4 39.29a8 8 0 0 0-10.13-10.13A112 112 0 1 0 226.84 162.73a8 8 0 0 0-10.13-10.13Zm-15.58 20.37A96.1 96.1 0 0 1 83 54.87a96 96 0 1 0 118.13 118.1Z"/>
-        </svg>
-      </button>
-    </div>
+<header class="titlebar" role="banner">
+  <div class="titlebar__brand">
+    <h1 class="titlebar__name">Arifin.</h1>
+    <p class="titlebar__role">Information Systems Undergraduate</p>
+  </div>
+  <nav class="titlebar__socials" aria-label="Social links">
+    <a href="https://github.com/HyuraFE" class="titlebar__link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+    <a href="mailto:notohyura@gmail.com" class="titlebar__link">Email ✉</a>
   </nav>
 </header>
 
-<script is:inline>
-  function setupThemeToggle() {
-    const btn = document.getElementById("theme-toggle");
-    const sun = document.getElementById("theme-sun");
-    const moon = document.getElementById("theme-moon");
-    if (!btn || !sun || !moon) return;
-
-    function updateIcons() {
-      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
-      if (isDark) {
-        sun.classList.remove("hidden");
-        moon.classList.add("hidden");
-      } else {
-        sun.classList.add("hidden");
-        moon.classList.remove("hidden");
-      }
-    }
-
-    updateIcons();
-
-    btn.onclick = () => {
-      const current = document.documentElement.getAttribute("data-theme");
-      const next = current === "dark" ? "light" : "dark";
-      document.documentElement.setAttribute("data-theme", next);
-      localStorage.setItem("theme", next);
-      updateIcons();
-    };
+<style>
+  .titlebar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: var(--gap);
+    padding-bottom: var(--gap);
+    border-bottom: var(--line-thick) solid var(--color-line);
+    margin-bottom: var(--gap);
   }
-  setupThemeToggle();
-  document.addEventListener("astro:after-swap", setupThemeToggle);
-</script>
+
+  @media (max-width: 768px) {
+    .titlebar {
+      grid-template-columns: 1fr;
+      gap: var(--gap-sm);
+    }
+  }
+
+  .titlebar__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .titlebar__name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(28px, 4vw, 44px);
+    line-height: 1.1;
+    color: var(--color-black);
+    letter-spacing: -0.02em;
+  }
+
+  .titlebar__role {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 768px) {
+    .titlebar__role {
+      font-size: 11px;
+    }
+  }
+
+  .titlebar__socials {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: end;
+  }
+
+  @media (max-width: 768px) {
+    .titlebar__socials {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+    }
+  }
+
+  .titlebar__link {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.4;
+    padding: 8px 12px;
+    border: var(--line-thin) solid var(--color-line);
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    text-decoration: none;
+    color: var(--color-black);
+    background: transparent;
+  }
+
+  .titlebar__link:hover,
+  .titlebar__link:focus {
+    background: var(--color-black);
+    color: var(--color-white);
+    text-decoration: none;
+    border-color: var(--color-black);
+  }
+</style>

@@ -1,48 +1,145 @@
 ---
 /**
- * Footer - Minimalis
- * Copyright + social links (GitHub, LinkedIn, Email)
+ * Footer — Experimental Jetset
+ * Ruled index grid, structural metadata
  */
-
-const socials = [
-  {
-    name: "GitHub",
-    url: "https://github.com/HyuraFE",
-    newTab: true,
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="M208.31 75.68A59.78 59.78 0 0 0 202.93 28a8 8 0 0 0-6.93-4a59.75 59.75 0 0 0-48 24h-24a59.75 59.75 0 0 0-48-24a8 8 0 0 0-6.93 4a59.78 59.78 0 0 0-5.38 47.68A58.14 58.14 0 0 0 56 104v8a56.06 56.06 0 0 0 48.44 55.47A39.8 39.8 0 0 0 96 192v8H72a24 24 0 0 1-24-24a40 40 0 0 0-40-40a8 8 0 0 0 0 16a24 24 0 0 1 24 24a40 40 0 0 0 40 40h24v16a8 8 0 0 0 16 0v-40a24 24 0 0 1 48 0v40a8 8 0 0 0 16 0v-40a39.8 39.8 0 0 0-8.44-24.53A56.06 56.06 0 0 0 216 112v-8a58.14 58.14 0 0 0-7.69-28.32Z"/></svg>`,
-  },
-  {
-    name: "Email",
-    url: "mailto:notohyura@gmail.com",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="M224 48H32a8 8 0 0 0-8 8v136a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V56a8 8 0 0 0-8-8Zm-96 85.15L52.57 64h150.86ZM98.71 128L40 181.81V74.19Zm11.84 10.85l12 11.05a8 8 0 0 0 10.82 0l12.09-11.05L203.43 192H52.57ZM157.29 128L216 74.18v107.64Z"/></svg>`,
-  },
-];
 
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="px-4 sm:px-6 pb-6" id="kontak">
-  <div
-    class="glass mx-auto max-w-6xl rounded-2xl px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4"
-  >
-    <p class="text-sm text-shuukura-900/70 font-body">
-      &copy; {currentYear} Muhammad Arifin. Built with Astro.
-    </p>
-
-    <div class="flex items-center gap-2">
-      {
-        socials.map((social) => (
-          <a
-            href={social.url}
-            target={social.newTab ? "_blank" : undefined}
-            rel={social.newTab ? "noopener noreferrer" : undefined}
-            aria-label={social.newTab ? `${social.name} (buka di tab baru)` : social.name}
-            class="flex h-11 w-11 items-center justify-center rounded-xl text-shuukura-600 hover:text-shuukura-900 hover:bg-[var(--glass-hover-bg)] transition-colors"
-          >
-            <Fragment set:html={social.icon} />
-          </a>
-        ))
-      }
+<footer class="footer" role="contentinfo">
+  <div class="footer__index">
+    <div class="footer__item">
+      <span class="footer__label">Name</span>
+      <span class="footer__value">Muhammad Arifin</span>
+    </div>
+    <div class="footer__item">
+      <span class="footer__label">Brand</span>
+      <span class="footer__value">Arifin.</span>
+    </div>
+    <div class="footer__item">
+      <span class="footer__label">Role</span>
+      <span class="footer__value">Information Systems Undergraduate</span>
+    </div>
+    <div class="footer__item">
+      <span class="footer__label">Stack</span>
+      <span class="footer__value">Arch · Hyprland · Kitty · Fish · VSCodium</span>
+    </div>
+    <div class="footer__item">
+      <span class="footer__label">GitHub</span>
+      <span class="footer__value"><a href="https://github.com/HyuraFE" target="_blank" rel="noopener noreferrer">github.com/HyuraFE</a></span>
+    </div>
+    <div class="footer__item">
+      <span class="footer__label">Email</span>
+      <span class="footer__value"><a href="mailto:notohyura@gmail.com">notohyura@gmail.com</a></span>
+    </div>
+    <div class="footer__item">
+      <span class="footer__label">Dotfiles</span>
+      <span class="footer__value"><a href="https://github.com/HyuraFE/dotfiles" target="_blank" rel="noopener noreferrer">github.com/HyuraFE/dotfiles</a></span>
+    </div>
+    <div class="footer__item">
+      <span class="footer__label">Projects</span>
+      <span class="footer__value">4 live utilities</span>
     </div>
   </div>
 </footer>
+
+<style>
+  .footer {
+    border: var(--line-thick) solid var(--color-line);
+    background: var(--color-black);
+    color: var(--color-white);
+  }
+
+  .footer__index {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--line-thin);
+  }
+
+  @media (max-width: 1024px) {
+    .footer__index {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer__index {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .footer__item {
+    padding: var(--gap);
+    border-right: var(--line-thin) solid var(--color-line);
+    border-bottom: var(--line-thin) solid var(--color-line);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .footer__item:nth-child(4n) {
+    border-right: none;
+  }
+
+  .footer__item:nth-child(n+5) {
+    border-bottom: none;
+  }
+
+  @media (max-width: 1024px) {
+    .footer__item:nth-child(4n) {
+      border-right: var(--line-thin) solid var(--color-line);
+    }
+    .footer__item:nth-child(2n) {
+      border-right: none;
+    }
+    .footer__item:nth-child(n+3) {
+      border-bottom: none;
+    }
+    .footer__item:nth-child(n+5) {
+      border-bottom: var(--line-thin) solid var(--color-line);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer__item:nth-child(2n) {
+      border-right: var(--line-thin) solid var(--color-line);
+    }
+    .footer__item {
+      border-right: none;
+      border-bottom: var(--line-thin) solid var(--color-line);
+    }
+    .footer__item:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .footer__label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--color-amber);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .footer__value {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .footer__value {
+      font-size: 14px;
+    }
+  }
+
+  .footer__value a {
+    color: var(--color-blue);
+  }
+
+  .footer__value a:hover,
+  .footer__value a:focus {
+    color: var(--color-amber);
+  }
+</style>

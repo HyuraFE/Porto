@@ -1,83 +1,145 @@
 ---
 /**
- * Hero Section - Perkenalan diri
- * Background: gambar blur full-section
- * Layout: teks kiri, foto portrait kanan (split asymmetric)
+ * Hero / Blueprint Grid — Experimental Jetset
+ * Grayscale contrast portrait + bold declarative statement + direct action
  */
 ---
 
-<section class="relative min-h-[100dvh] flex items-center overflow-hidden">
-  <!-- Blurred background image -->
-  <div class="absolute inset-0 z-0">
-    <!-- ponytail: picture tag with static webp conversion; upgrade to astro:assets if dynamic responsive variants needed -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__panel hero__panel--portrait">
     <picture>
-      <source srcset="/images/background.webp" type="image/webp" />
+      <source srcset="/images/profile.webp" type="image/webp" />
       <img
-        src="/images/background.jpg"
-        alt=""
-        width="736"
-        height="417"
-        class="h-full w-full object-cover scale-105 blur-[6px]"
+        src="/images/profile.png"
+        alt="Foto profil Muhammad Arifin"
+        class="hero__portrait"
         loading="eager"
-        decoding="async"
+        fetchpriority="high"
+        width="288"
+        height="384"
       />
     </picture>
-    <div class="hero-overlay absolute inset-0"></div>
   </div>
-
-  <!-- Content -->
-  <div class="relative z-10 mx-auto w-full max-w-6xl px-6 py-20 md:py-0">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-      <!-- Text side with frosted glass blur box -->
-      <div class="order-2 md:order-1 animate-fade-in-up">
-        <div class="glass rounded-2xl md:rounded-3xl p-6 sm:p-8 md:p-10">
-          <p class="text-sm font-semibold tracking-wide text-shuukura-700 mb-3 font-body uppercase">
-            Mahasiswa Sistem Informasi
-          </p>
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight font-display text-shuukura-900 mb-5">
-            Halo, saya <br />
-            <span class="text-shuukura-600">Muhammad Arifin</span>
-          </h1>
-          <p class="text-base md:text-lg leading-relaxed text-shuukura-900/75 max-w-[50ch] font-body">
-            Seorang mahasiswa Sistem Informasi yang tertarik dengan dunia
-            pengembangan aplikasi dan teknologi. Senang membangun hal-hal
-            bermanfaat melalui kode, satu baris demi satu baris.
-          </p>
-
-          <div class="mt-8">
-            <a
-              href="#proyek"
-              class="inline-flex items-center gap-2 rounded-xl bg-shuukura-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-shuukura-600/25 transition-all duration-200 hover:bg-shuukura-700 hover:shadow-xl hover:shadow-shuukura-600/35 hover:-translate-y-0.5 active:translate-y-0 font-body"
-            >
-              Lihat Proyek
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 256 256" fill="currentColor">
-                <path d="M200 40v120a8 8 0 0 1-16 0V67.31L61.66 189.66a8 8 0 0 1-11.32-11.32L172.69 56H80a8 8 0 0 1 0-16h120Z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Photo side -->
-      <div class="order-1 md:order-2 flex justify-center md:justify-end animate-fade-in-up animate-delay-200">
-        <div class="relative">
-          <div class="glass absolute -inset-3 rounded-[1.75rem]"></div>
-          <picture>
-            <source srcset="/images/profile.webp" type="image/webp" />
-            <img
-              src="/images/profile.png"
-              alt="Foto profil Muhammad Arifin"
-              width="288"
-              height="384"
-              sizes="(max-width: 768px) 256px, 288px"
-              class="relative aspect-[3/4] w-64 md:w-72 rounded-2xl object-cover"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-            />
-          </picture>
-        </div>
-      </div>
-    </div>
+  <div class="hero__panel hero__panel--text">
+    <h2 id="hero-title" class="hero__tagline">
+      Practical builder. Tool maker. Daily Linux driver.
+    </h2>
+    <p class="hero__persona">
+      Arch + Hyprland. Code as proof of capability. Four live utilities, zero bloat.
+    </p>
+    <a href="#proyek" class="hero__cta">
+      View Projects →
+    </a>
   </div>
 </section>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+    margin-bottom: var(--gap);
+    border: var(--line-thick) solid var(--color-line);
+    background: var(--color-white);
+  }
+
+  @media (max-width: 1024px) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      gap: var(--gap-sm);
+    }
+  }
+
+  .hero__panel {
+    padding: var(--gap);
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (max-width: 768px) {
+    .hero__panel {
+      padding: var(--gap-sm);
+    }
+  }
+
+  .hero__panel--portrait {
+    border-right: var(--line-thin) solid var(--color-line);
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 1024px) {
+    .hero__panel--portrait {
+      border-right: none;
+      border-bottom: var(--line-thin) solid var(--color-line);
+    }
+  }
+
+  .hero__portrait {
+    width: 100%;
+    max-width: 288px;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border: var(--line-thick) solid var(--color-line);
+    filter: grayscale(100%) contrast(140%) brightness(90%);
+  }
+
+  .hero__panel--text {
+    justify-content: center;
+    gap: var(--gap-sm);
+  }
+
+  .hero__tagline {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(20px, 3vw, 32px);
+    line-height: 1.2;
+    color: var(--color-black);
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  .hero__persona {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--color-text-muted);
+    text-wrap: pretty;
+  }
+
+  @media (max-width: 768px) {
+    .hero__persona {
+      font-size: 16px;
+    }
+  }
+
+  .hero__cta {
+    margin-top: var(--gap-sm);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 10px 16px;
+    border: var(--line-thick) solid var(--color-line);
+    background: var(--color-black);
+    color: var(--color-white);
+    text-decoration: none;
+    min-height: 44px;
+    align-self: flex-start;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .hero__cta:hover,
+  .hero__cta:focus {
+    background: var(--color-amber);
+    color: var(--color-white);
+    border-color: var(--color-amber);
+    text-decoration: none;
+  }
+</style>
