@@ -90,3 +90,15 @@ Per `huashu-design` and harness rules:
 | Screenshots | `design-demos/dir-{1,2,3}-{desktop,mobile}.png` | Visual evidence for side-by-side user review |
 | Selection Record | `design-demos/direction-approved.md` | Verbatim record of user choice before final coding |
 | Production Site | `src/` | Final implemented Astro + Tailwind site pushed to `beta` |
+
+## Advisory Restatement
+你是 Muhammad Arifin，信息系统学生，维护 4 个偏工具类的公开项目，日常跑 Arch + Hyprland，偏键盘驱动、极简、工程师审美。目标受众：技术招聘方、同行开发者。他们 3 秒决定是否往下翻 —— 首屏必须立刻传达「能动手、审美在线、技术栈硬核」。情感基调：克制自信、不卖弄、代码即作品。输出格式：单页 Astro 落地页（Hero / Projects / Uses / FunFacts / Footer），三方向统一尺寸 1440×900 桌面 + 375×812 移动。
+
+## Form Five Questions (shared scaffold, each direction answers differently)
+
+### Direction 1 (placeholder)
+- 叙事角色: Hero = 宣言；Projects = 证据；Uses = 环境；FunFacts = 人味；Footer = 联系
+- 观众距离: 1m 笔记本（主），10cm 手机（次）
+- 视觉温度: [各方向填：安静/冷静/权威/温柔/兴奋...]
+- 容量估算: 5 段 × 1 屏，Hero ≤100vh，Projects 2×2 网格，Uses 双栏，FunFacts 3 列，Footer 1 行
+- 视觉母题: [各方向填：这个题材独有的视觉元素/结构/隐喻]
