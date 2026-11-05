@@ -25,14 +25,14 @@
 
 /* Ocean Breeze Dark Theme
    Deep Twilight #03045e (bg)
-   Bright Teal Blue #0077b6 (primary text/accents/buttons/lines)
+   Bright Teal Blue #0077b6 (accents/buttons/lines)
    Turquoise Surf #00b4d8 (interactive/links)
    Frosted Blue #90e0ef (secondary text/subtle)
-   Light Cyan #caf0f8 (contrast text on buttons)
+   Light Cyan #caf0f8 (primary text/contrast)
 */
 html.dark {
   --color-white: #caf0f8;
-  --color-black: #caf0f8;
+  --color-black: #03045e;
   --color-blue: #00b4d8;
   --color-amber: #90e0ef;
   --color-line: #0077b6;
@@ -40,8 +40,8 @@ html.dark {
   --color-surface: #060875;
   --color-surface-contrast: #0077b6;
   --color-text-on-contrast: #caf0f8;
-  --color-text: #0077b6;
-  --color-text-muted: #0091d1;
+  --color-text: #caf0f8;
+  --color-text-muted: #90e0ef;
 }
 
 @media (prefers-reduced-motion: reduce) {
