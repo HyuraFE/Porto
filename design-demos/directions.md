@@ -52,19 +52,19 @@
 
 - **逻辑与来源 (Logic & Source)**: Paco Coursey personal website (`https://paco.me/`, design engineer, creator of `cmdk`). Reference screenshot captured at `design-demos/refs/ref-paco.png`.
 - **借的是什么 (Concrete Borrowed Rules)**:
-  - Grid: Centered narrow column (580px desktop reading measure), ample balanced side gutters.
+  - Grid: Centered narrow column (580px desktop reading measure), ample balanced side gutters (430px each at 1440px width).
   - Type ratio: Subtle low-dramatic 1.2 scale (body 15px, headings 17px–20px); typographic hierarchy driven by color value and weight rather than oversized text.
-  - Color ratio: 94% deep neutral charcoal background (#111111), 5% muted slate-grey typography (#888888), 1% crisp white foreground highlight (#EDEDED).
+  - Color ratio: 95% crisp white paper canvas (#FFFFFF), 4% deep charcoal/black typography (#111111), 1% subtle light grey dividers/date markers (#777777 / #E5E5E5). (Note: paco.me rendered default clean white theme upon Playwright headless capture).
   - Image-text relation: Text is the absolute protagonist; portrait sits as a refined, small, perfectly circular or square inline marker alongside biographical prose.
 - **骨架 (Layout Skeleton)**: Streamlined single-column chronological narrative feed; hero flows directly into project links formatted as year/title list items, followed by notes.
 - **胆量花在哪 (Boldest Move)**: Extreme typographic restraint; entire page uses small, quiet text hierarchy with zero floating card containers or decorative drop shadows.
 - **主角素材 (Lead Material)**: Precise micro-typography, subtle hover states, and authentic software utility descriptions.
 - **form 来自内容的哪里 (Form Grounded in Content)**: Echoes the student's authentic preference for pure text search, keyboard workflows, and focused CLI tooling (`tik`, `sh`, `ani`).
 - **Proposed Palette**:
-  - Charcoal Background: `#121212` (L 0.14, C 0.0)
-  - Muted Grey Text: `#8A8A8A` (L 0.60, C 0.0)
-  - Highlight White: `#EEEEEE` (L 0.94, C 0.0)
-  - *Justification*: Low ocular fatigue night-canvas prioritizing deep reading and calm technical craft.
+  - Paper White: `#FFFFFF` (L 1.0, C 0.0)
+  - Ink Charcoal: `#111111` (L 0.12, C 0.0)
+  - Muted Grey Rule: `#888888` (L 0.58, C 0.0)
+  - *Justification*: Unadorned monochrome clarity prioritizing fast reading and zero distraction.
 - **Font Pair**: `Geist` (display & body, 400/500) + `Geist Mono` (code & metadata).
 
 ---
