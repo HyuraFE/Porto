@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Muhammad Arifin — Information Systems undergraduate. Practical builder, tool maker, daily Linux driver (Arch + Hyprland). Code as proof of capability.">
+  <title>Arifin.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <style>
+    :root {
+      --paper: #F7F6F2;
+      --ink: #181816;
+      --cinnabar: #D9381E;
+      --indigo: #2C3E55;
+      --ink-muted: #4A4A48;
+      --max-width: 680px;
+      --left-margin: 15vw;
+      --scale: 1.25;
+      --base: 16px;
+      --lh: 1.85;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: var(--base);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 1rem;
+      line-height: var(--lh);
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    @media (max-width: 599px) {
+      html { font-size: 16px; }
+      body { font-size: 1rem; }
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .content {
+      width: 100%;
+      max-width: var(--max-width);
+      margin-left: var(--left-margin);
+      padding: 8rem 2rem 10rem;
+      flex: 1;
+    }
+
+    @media (max-width: 1024px) {
+      .content {
+        margin-left: 0;
+        padding: 5rem 1.5rem 8rem;
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 599px) {
+      .content {
+        padding: 3.5rem 1rem 6rem;
+      }
+    }
+
+    /* Typography */
+    h1, h2, h3 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.3;
+      text-wrap: balance;
+      color: var(--ink);
+    }
+
+    h1 { font-size: calc(var(--base) * var(--scale) * var(--scale) * var(--scale)); } /* ~39px */
+    h2 { font-size: calc(var(--base) * var(--scale) * var(--scale)); } /* ~25px */
+    h3 { font-size: calc(var(--base) * var(--scale)); } /* ~20px */
+
+    @media (max-width: 599px) {
+      h1 { font-size: calc(16px * 1.25 * 1.25 * 1.15); }
+      h2 { font-size: calc(16px * 1.25 * 1.15); }
+      h3 { font-size: calc(16px * 1.15); }
+    }
+
+    p, li, a, label, span {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 1rem;
+      line-height: var(--lh);
+      text-wrap: pretty;
+    }
+
+    .caption, .label, small {
+      font-size: 0.75rem; /* 12px */
+      line-height: 1.6;
+      color: var(--ink-muted);
+    }
+
+    a {
+      color: var(--indigo);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    a:hover, a:focus {
+      color: var(--cinnabar);
+      border-color: var(--cinnabar);
+      outline: none;
+    }
+
+    a:focus-visible {
+      outline: 2px solid var(--cinnabar);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* Seal - the single cinnabar accent */
+    .seal {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--cinnabar);
+      margin-left: 0.5rem;
+      vertical-align: 0.2em;
+      flex-shrink: 0;
+    }
+
+    /* Header / Identity */
+    .header {
+      padding-bottom: 4rem;
+      border-bottom: 1px solid color-mix(in oklch, var(--ink) 12%, transparent);
+      margin-bottom: 4rem;
+    }
+
+    .identity-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .name {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.15;
+      color: var(--ink);
+    }
+
+    .title {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--ink-muted);
+      letter-spacing: 0.02em;
+      text-transform: none;
+    }
+
+    /* Hero */
+    .hero {
+      margin-bottom: 6rem;
+    }
+
+    .portrait-wrapper {
+      margin-bottom: 3rem;
+    }
+
+    .portrait {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border: none;
+      box-shadow: none;
+    }
+
+    .stance {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      font-size: 1.25rem;
+      line-height: 1.7;
+      color: var(--ink);
+      max-width: 520px;
+    }
+
+    @media (max-width: 599px) {
+      .stance { font-size: 1.125rem; }
+    }
+
+    /* Section spacing */
+    .section {
+      margin-bottom: 6rem;
+    }
+
+    .section:last-of-type {
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 300;
+      font-size: 1.5rem;
+      line-height: 1.4;
+      color: var(--ink);
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--ink);
+      margin-top: 0.5rem;
+      opacity: 0.3;
+    }
+
+    /* Projects */
+    .projects-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+
+    .project-item {
+      padding-left: 0;
+    }
+
+    .project-name {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 400;
+      font-size: 1.375rem;
+      line-height: 1.4;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+      text-wrap: balance;
+    }
+
+    .project-desc {
+      font-size: 1rem;
+      color: var(--ink-muted);
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-link {
+      font-size: 0.875rem;
+      color: var(--indigo);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .project-link:hover {
+      color: var(--cinnabar);
+    }
+
+    /* Uses / Environment */
+    .uses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem 2.5rem;
+    }
+
+    @media (max-width: 599px) {
+      .uses-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+
+    .use-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .use-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .use-value {
+      font-size: 1rem;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    .use-value a {
+      font-size: 1rem;
+    }
+
+    /* Fun Facts */
+    .facts-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .fact-item {
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .fact-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 4px;
+      height: 4px;
+      background: var(--ink);
+      opacity: 0.25;
+      border-radius: 50%;
+    }
+
+    .fact-text {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--ink);
+    }
+
+    .fact-text strong {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* Footer */
+    .footer {
+      padding-top: 4rem;
+      border-top: 1px solid color-mix(in oklch, var(--ink) 12%, transparent);
+      margin-top: auto;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    @media (min-width: 600px) {
+      .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .copyright {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+    }
+
+    .socials {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      border-bottom: 1px solid transparent;
+      padding-bottom: 1px;
+    }
+
+    .social-link:hover {
+      color: var(--cinnabar);
+      border-color: var(--cinnabar);
+    }
+
+    /* Print styles */
+    @media print {
+      .page { min-height: auto; }
+      .content { margin-left: 0; padding: 2rem; }
+      a { color: var(--ink); border-bottom: 1px solid var(--ink); }
+      .seal { background: var(--ink); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main class="content">
+      <!-- Header / Identity -->
+      <header class="header">
+        <div class="identity-row">
+          <h1 class="name">Arifin.<span class="seal" aria-hidden="true"></span></h1>
+          <span class="title">Information Systems Undergraduate</span>
+        </div>
+      </header>
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="portrait-wrapper">
+          <picture>
+            <source type="image/webp" srcset="../public/images/profile.webp">
+            <img class="portrait" src="../public/images/profile.png" alt="Muhammad Arifin portrait" width="288" height="384" loading="eager" fetchpriority="high">
+          </picture>
+        </div>
+        <p class="stance">Practical builder, tool maker, daily Linux driver (Arch + Hyprland). Code as proof of capability.</p>
+      </section>
+
+      <!-- Projects -->
+      <section class="section" aria-labelledby="projects-title">
+        <h2 id="projects-title" class="section-title">Projects</h2>
+        <ul class="projects-list">
+          <li class="project-item">
+            <h3 class="project-name">TikTok Videos Downloader</h3>
+            <p class="project-desc">Watermark-free TikTok video downloader utility</p>
+            <a class="project-link" href="https://tik.pylexia.fun" target="_blank" rel="noopener noreferrer">tik.pylexia.fun</a>
+          </li>
+          <li class="project-item">
+            <h3 class="project-name">Shrtnr</h3>
+            <p class="project-desc">URL shortener utility (Bitly alternative)</p>
+            <a class="project-link" href="https://sh.pylexia.fun" target="_blank" rel="noopener noreferrer">sh.pylexia.fun</a>
+          </li>
+          <li class="project-item">
+            <h3 class="project-name">Chatbot AI</h3>
+            <p class="project-desc">Conversational AI agent backed by Gemini and ChatGPT models</p>
+            <a class="project-link" href="https://bot.pylexia.fun" target="_blank" rel="noopener noreferrer">bot.pylexia.fun</a>
+          </li>
+          <li class="project-item">
+            <h3 class="project-name">Manga Tracker</h3>
+            <p class="project-desc">Reading tracker for Manga and Light Novels</p>
+            <a class="project-link" href="https://ani.pylexia.fun" target="_blank" rel="noopener noreferrer">ani.pylexia.fun</a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Uses / Environment -->
+      <section class="section" aria-labelledby="uses-title">
+        <h2 id="uses-title" class="section-title">Uses</h2>
+        <div class="uses-grid">
+          <div class="use-item">
+            <span class="use-label">Hardware</span>
+            <span class="use-value">Asus Vivobook Go 14</span>
+          </div>
+          <div class="use-item">
+            <span class="use-label">OS</span>
+            <span class="use-value">Arch Linux (Rolling)</span>
+          </div>
+          <div class="use-item">
+            <span class="use-label">WM / Compositor</span>
+            <span class="use-value">Hyprland (Wayland)</span>
+          </div>
+          <div class="use-item">
+            <span class="use-label">Terminal</span>
+            <span class="use-value">Kitty (GPU-accelerated)</span>
+          </div>
+          <div class="use-item">
+            <span class="use-label">Shell</span>
+            <span class="use-value">Fish Shell</span>
+          </div>
+          <div class="use-item">
+            <span class="use-label">Editor</span>
+            <span class="use-value">VSCodium</span>
+          </div>
+          <div class="use-item">
+            <span class="use-label">Dotfiles</span>
+            <span class="use-value"><a href="https://github.com/HyuraFE/dotfiles" target="_blank" rel="noopener noreferrer">github.com/HyuraFE/dotfiles</a></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Fun Facts -->
+      <section class="section" aria-labelledby="facts-title">
+        <h2 id="facts-title" class="section-title">Fun Facts</h2>
+        <ul class="facts-list">
+          <li class="fact-item">
+            <p class="fact-text"><strong>First coded in Notepad.</strong> Started HTML/CSS in raw Windows Notepad without syntax highlighting; blank page resulted from forgetting <code><body></code>.</p>
+          </li>
+          <li class="fact-item">
+            <p class="fact-text"><strong>Longest bug: 6 hours.</strong> Debugging a variable name typo; cemented habit of using autocompletion editors.</p>
+          </li>
+          <li class="fact-item">
+            <p class="fact-text"><strong>Google > Memorization.</strong> Relies on documentation, search, and problem solving over rote syntax memorization.</p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+          <p class="copyright">&copy; 2025 Muhammad Arifin</p>
+          <nav class="socials" aria-label="Social links">
+            <a class="social-link" href="https://github.com/HyuraFE" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="social-link" href="mailto:notohyura@gmail.com">Email</a>
+          </nav>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Smooth scroll fallback for browsers without CSS scroll-behavior support
+    (function() {
+      if ('scrollBehavior' in document.documentElement.style) return;
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          var target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    })();
+
+    // Respect reduced motion for any future animations
+    (function() {
+      var mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      document.documentElement.classList.toggle('reduce-motion', mediaQuery.matches);
+      mediaQuery.addEventListener('change', function(e) {
+        document.documentElement.classList.toggle('reduce-motion', e.matches);
+      });
+    })();
+  </script>
+</body>
+</html>

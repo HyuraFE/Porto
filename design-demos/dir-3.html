@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Arifin — Portfolio (Dark Editorial)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-base: #0B132B;
+    --bg-surface: #0F172A;
+    --bg-card: #152238;
+    --bg-card-hover: #1c2b48;
+    --border-subtle: #1E2A4A;
+    --border-active: #2A3C66;
+    --text-primary: #FFFFFF;
+    --text-muted: #8892B0;
+    --text-dim: #5A6582;
+    --accent-mint: #64FFDA;
+    --accent-cyan: #38BDF8;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'Fira Code', ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html {
+    scroll-behavior: smooth;
+    background: var(--bg-base);
+    color: var(--text-muted);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  body {
+    min-height: 100vh;
+    background: radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.04), transparent 40%),
+                radial-gradient(circle at 85% 60%, rgba(100, 255, 218, 0.03), transparent 45%),
+                var(--bg-base);
+  }
+  ::selection {
+    background: rgba(100, 255, 218, 0.25);
+    color: var(--text-primary);
+  }
+  :focus-visible {
+    outline: 3px solid var(--accent-mint);
+    outline-offset: 3px;
+  }
+  .layout {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 440px 1fr;
+    gap: 70px;
+    min-height: 100vh;
+  }
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .sidebar-top {
+    display: flex;
+    flex-direction: column;
+  }
+  .avatar-wrap {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--border-active);
+    margin-bottom: 24px;
+    box-shadow: 0 0 24px rgba(100, 255, 218, 0.12);
+  }
+  .avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .name {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .role {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    color: var(--accent-mint);
+    margin-top: 10px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-mint);
+    box-shadow: 0 0 8px var(--accent-mint);
+    display: inline-block;
+  }
+  .bio {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 20px;
+    max-width: 360px;
+  }
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .nav-link {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--text-dim);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: color 150ms ease, transform 150ms ease;
+    padding: 6px 0;
+    min-height: 44px;
+  }
+  .nav-link .nav-indicator {
+    width: 24px;
+    height: 1px;
+    background: var(--text-dim);
+    transition: width 200ms ease, background-color 200ms ease;
+  }
+  .nav-link:hover, .nav-link.active {
+    color: var(--text-primary);
+  }
+  .nav-link:hover .nav-indicator, .nav-link.active .nav-indicator {
+    width: 48px;
+    background: var(--accent-mint);
+  }
+  .nav-link:hover span, .nav-link.active span {
+    color: var(--accent-mint);
+  }
+  .sidebar-bottom {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .social-link {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 10px 14px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    transition: all 150ms ease;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .social-link:hover {
+    color: var(--accent-mint);
+    border-color: var(--accent-mint);
+    background: rgba(100, 255, 218, 0.05);
+  }
+  .content {
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 110px;
+  }
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-mint);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::before {
+    content: "//";
+    color: var(--accent-cyan);
+  }
+  .project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 26px 30px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    display: block;
+    transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .project-card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-active);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -10px rgba(0, 0, 0, 0.5);
+  }
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  .project-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: color 150ms ease;
+  }
+  .project-card:hover .project-title {
+    color: var(--accent-mint);
+  }
+  .project-url {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent-cyan);
+    white-space: nowrap;
+  }
+  .project-desc {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+  .tech-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .pill {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    background: rgba(100, 255, 218, 0.08);
+    color: var(--accent-mint);
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid rgba(100, 255, 218, 0.18);
+  }
+  .env-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .env-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 20px 22px;
+  }
+  .env-category {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--accent-cyan);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .env-value {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  .env-badge {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+  .dotfiles-box {
+    grid-column: 1 / -1;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px dashed var(--border-active);
+    border-radius: 8px;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .dotfiles-info h4 {
+    font-size: 16px;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .dotfiles-info p {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .dotfiles-btn {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    background: var(--accent-mint);
+    color: #0A0E1A;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    white-space: nowrap;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    transition: opacity 150ms ease;
+  }
+  .dotfiles-btn:hover {
+    opacity: 0.9;
+  }
+  .fact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .fact-item {
+    background: var(--bg-card);
+    border-left: 3px solid var(--accent-mint);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+  }
+  .fact-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+  }
+  .fact-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-muted);
+  }
+  .footer {
+    padding-top: 40px;
+    border-top: 1px solid var(--border-subtle);
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-dim);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  @media (max-width: 960px) {
+    .layout {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 0 24px;
+    }
+    .sidebar {
+      position: relative;
+      height: auto;
+      padding: 48px 0 20px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .content {
+      padding: 20px 0 60px;
+      gap: 60px;
+    }
+    .env-grid {
+      grid-template-columns: 1fr;
+    }
+    .dotfiles-box {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="avatar-wrap">
+        <picture>
+          <source srcset="../public/images/profile.webp" type="image/webp">
+          <img src="../public/images/profile.png" alt="Muhammad Arifin" class="avatar" loading="eager" width="96" height="96">
+        </picture>
+      </div>
+      <h1 class="name">Muhammad<br>Arifin</h1>
+      <div class="role">
+        <span class="status-dot"></span>
+        <span>Sistem Informasi · Arch Linux</span>
+      </div>
+      <p class="bio">
+        Mahasiswa Sistem Informasi yang menyukai pengembangan aplikasi dan lingkungan Unix. Membangun alat bermanfaat melalui kode yang bersih dan teruji.
+      </p>
+      <nav class="nav" aria-label="Navigasi Halaman">
+        <a href="#proyek" class="nav-link active">
+          <span class="nav-indicator"></span>
+          <span>Proyek</span>
+        </a>
+        <a href="#setup" class="nav-link">
+          <span class="nav-indicator"></span>
+          <span>Setup & Stack</span>
+        </a>
+        <a href="#fakta" class="nav-link">
+          <span class="nav-indicator"></span>
+          <span>Catatan Singkat</span>
+        </a>
+      </nav>
+    </div>
+    <div class="sidebar-bottom">
+      <a href="https://github.com/HyuraFE" target="_blank" rel="noopener noreferrer" class="social-link">
+        <span>GitHub</span>
+        <span style="font-size:11px;color:var(--accent-mint)">↗</span>
+      </a>
+      <a href="mailto:notohyura@gmail.com" class="social-link">
+        <span>Email</span>
+        <span style="font-size:11px;color:var(--accent-mint)">✉</span>
+      </a>
+    </div>
+  </aside>
+
+  <main class="content">
+    <section id="proyek">
+      <div class="section-label">Featured Projects</div>
+      <a href="https://tik.pylexia.fun" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">TikTok Videos Downloader</h3>
+          <span class="project-url">tik.pylexia.fun ↗</span>
+        </div>
+        <p class="project-desc">Tempat mengunduh video TikTok secara cepat tanpa watermark dengan preservasi kualitas asli.</p>
+        <div class="tech-pills">
+          <span class="pill">Utility</span>
+          <span class="pill">Web App</span>
+          <span class="pill">Live</span>
+        </div>
+      </a>
+
+      <a href="https://sh.pylexia.fun" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">Shrtnr</h3>
+          <span class="project-url">sh.pylexia.fun ↗</span>
+        </div>
+        <p class="project-desc">Layanan peringkas tautan web yang ringkas seperti Bitly dengan tautan kustom dan analitik dasar.</p>
+        <div class="tech-pills">
+          <span class="pill">URL Shortener</span>
+          <span class="pill">Live</span>
+        </div>
+      </a>
+
+      <a href="https://bot.pylexia.fun" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">Chatbot AI</h3>
+          <span class="project-url">bot.pylexia.fun ↗</span>
+        </div>
+        <p class="project-desc">Agent bot AI interaktif multi-model yang menghubungkan Google Gemini dan ChatGPT untuk komparasi jawaban.</p>
+        <div class="tech-pills">
+          <span class="pill">AI Integration</span>
+          <span class="pill">Gemini</span>
+          <span class="pill">ChatGPT</span>
+        </div>
+      </a>
+
+      <a href="https://ani.pylexia.fun" target="_blank" rel="noopener noreferrer" class="project-card">
+        <div class="project-header">
+          <h3 class="project-title">Manga Tracker</h3>
+          <span class="project-url">ani.pylexia.fun ↗</span>
+        </div>
+        <p class="project-desc">Aplikasi pelacak progres membaca Manga dan Light Novel personal dengan pencatatan bab terakhir.</p>
+        <div class="tech-pills">
+          <span class="pill">Tracker</span>
+          <span class="pill">Reading Log</span>
+          <span class="pill">Live</span>
+        </div>
+      </a>
+    </section>
+
+    <section id="setup">
+      <div class="section-label">Environment & Setup</div>
+      <div class="env-grid">
+        <div class="env-card">
+          <div class="env-category">Hardware Utama</div>
+          <div class="env-value">Asus Vivobook Go 14</div>
+          <div class="env-badge">Daily Driver Kuliah & Ngoding</div>
+        </div>
+        <div class="env-card">
+          <div class="env-category">Operating System</div>
+          <div class="env-value">Arch Linux</div>
+          <div class="env-badge">Rolling Release · Bleeding Edge</div>
+        </div>
+        <div class="env-card">
+          <div class="env-category">Compositor</div>
+          <div class="env-value">Hyprland</div>
+          <div class="env-badge">Wayland Compositor</div>
+        </div>
+        <div class="env-card">
+          <div class="env-category">Terminal & Shell</div>
+          <div class="env-value">Kitty + Fish Shell</div>
+          <div class="env-badge">GPU-accelerated · Interactive</div>
+        </div>
+        <div class="env-card">
+          <div class="env-category">Code Editor</div>
+          <div class="env-value">VSCodium</div>
+          <div class="env-badge">Open Source Binary</div>
+        </div>
+        <div class="env-card">
+          <div class="env-category">Filosofi Kerja</div>
+          <div class="env-value">Keyboard Driven</div>
+          <div class="env-badge">Minimalis · Cepat · Terfokus</div>
+        </div>
+        <div class="dotfiles-box">
+          <div class="dotfiles-info">
+            <h4>Repositori Dotfiles</h4>
+            <p>Konfigurasi lengkap Hyprland, Kitty, Fish, dan estetika desktop Linux.</p>
+          </div>
+          <a href="https://github.com/HyuraFE/dotfiles" target="_blank" rel="noopener noreferrer" class="dotfiles-btn">
+            Buka Dotfiles ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="fakta">
+      <div class="section-label">Developer Notes</div>
+      <div class="fact-list">
+        <div class="fact-item">
+          <div class="fact-title">Pertama coding pakai Notepad</div>
+          <p class="fact-desc">Awal belajar HTML dan CSS langsung di Notepad tanpa IDE atau syntax highlighting. Hasilnya sempat halaman putih polos hanya karena lupa menutup tag body.</p>
+        </div>
+        <div class="fact-item">
+          <div class="fact-title">Bug terlama: 6 jam karena typo</div>
+          <p class="fact-desc">Pernah menghabiskan debugging selama 6 jam hanya karena salah satu huruf nama variabel. Pengalaman itu yang membuat autocompletion dan linter jadi prioritas.</p>
+        </div>
+        <div class="fact-item">
+          <div class="fact-title">Problem solving melampaui hafalan sintaks</div>
+          <p class="fact-desc">Dokumentasi resmi dan pencarian yang terarah adalah teman terbaik. Kemampuan merumuskan solusi jauh lebih berharga daripada sekadar menghafal semua keyword.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>© 2026 Muhammad Arifin · Built with Astro</span>
+      <span>Arifin.</span>
+    </footer>
+  </main>
+</div>
+
+<script>
+  // Simple scrollspy to highlight active sidebar link
+  const sections = document.querySelectorAll('main > section');
+  const navLinks = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(sec => {
+      const top = sec.offsetTop - 120;
+      if (window.scrollY >= top) {
+        current = sec.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  }, { passive: true });
+</script>
+</body>
+</html>
