@@ -19,10 +19,11 @@
 - **胆量花在哪 (Boldest Move)**: 65% of the initial 1440×900 viewport is intentionally vacant negative space; zero borders, zero background boxes.
 - **form 来自内容的哪里 (Form Grounded in Content)**: Student builder running Arch Linux by choice avoids clutter: the site exhibits code tools with the exact same unadorned discipline as his minimal Hyprland config.
 - **Proposed Palette**:
-  - Warm Paper: `#F7F6F2` (L 0.96, C 0.015, H 95)
-  - Sumi Ink: `#181816` (L 0.16, C 0.005, H 80)
-  - Cinnabar Vermilion: `#D9381E` (L 0.52, C 0.18, H 35, single focal seal)
-  - *Justification*: Uncoated Japanese art paper tone reduces screen glare and anchors the calm editorial posture.
+  - Chromatic Primary: Cinnabar Vermilion `#D9381E` (L 0.52, C 0.18, H 35 — single focal seal)
+  - Chromatic Secondary: Indigo Slate `#2C3E55` (L 0.35, C 0.08, H 245 — project tags & anchor links)
+  - Neutral Base: Warm Paper `#F7F6F2` (L 0.96, C 0.015, H 95)
+  - Neutral Text: Sumi Ink `#181816` (L 0.16, C 0.005, H 80)
+  - *Justification*: Traditional Japanese print pairing (cinnabar seal + indigo ink) over warm washi paper grounding an unhurried editorial tone.
 - **Font Pair**: `Source Serif 4` (display/titles, 300/400) + `Inter` (body/UI labels, 400).
 
 ---
@@ -40,10 +41,11 @@
 - **胆量花在哪 (Boldest Move)**: Completely exposed structural grid with 1.5px solid black borders everywhere; zero border-radius, raw underlined default blue links.
 - **form 来自内容的哪里 (Form Grounded in Content)**: Direct visual translation of tiling window managers (Hyprland): information slots into explicit, non-overlapping geometric tiles without ornamental padding.
 - **Proposed Palette**:
-  - Stark White: `#FFFFFF` (L 1.0, C 0.0)
-  - Jet Black: `#0A0A0A` (L 0.12, C 0.0)
-  - Hyperlink Blue: `#0022FF` (L 0.45, C 0.22, H 260)
-  - *Justification*: High-contrast structural utility reflecting the strict geometry of code compilers and tiling workspaces.
+  - Chromatic Primary: International Signal Blue `#0022FF` (L 0.45, C 0.22, H 260 — raw links & grid focus)
+  - Chromatic Secondary: Fluorescent Warning Amber `#FF5500` (L 0.62, C 0.21, H 45 — status dot & stack tag)
+  - Neutral Base: Stark White `#FFFFFF` (L 1.0, C 0.0)
+  - Neutral Line/Ink: Jet Black `#0A0A0A` (L 0.12, C 0.0)
+  - *Justification*: Modernist poster tension combining industrial signal blue and warning amber against harsh black grid lines.
 - **Font Pair**: `Archivo` (display headings, 800) + `JetBrains Mono` (metadata & labels) + `Inter` (body text).
 
 ---
@@ -61,10 +63,12 @@
 - **主角素材 (Lead Material)**: Precise micro-typography, subtle hover states, and authentic software utility descriptions.
 - **form 来自内容的哪里 (Form Grounded in Content)**: Echoes the student's authentic preference for pure text search, keyboard workflows, and focused CLI tooling (`tik`, `sh`, `ani`).
 - **Proposed Palette**:
-  - Paper White: `#FFFFFF` (L 1.0, C 0.0)
-  - Ink Charcoal: `#111111` (L 0.12, C 0.0)
-  - Muted Grey Rule: `#888888` (L 0.58, C 0.0)
-  - *Justification*: Unadorned monochrome clarity prioritizing fast reading and zero distraction.
+  - Chromatic Primary: Terminal Cobalt `#3B82F6` (L 0.60, C 0.16, H 250 — subtle interactive links & active tab indicator)
+  - Chromatic Secondary: Warm Amber Glow `#F59E0B` (L 0.75, C 0.15, H 75 — subtle live indicator dot)
+  - Neutral Base: Paper White `#FFFFFF` (L 1.0, C 0.0)
+  - Neutral Body: Ink Charcoal `#111111` (L 0.12, C 0.0)
+  - Neutral Rule: Muted Grey `#888888` (L 0.58, C 0.0)
+  - *Justification*: Clean monochrome canvas accented by precise functional blue and warm status amber for micro-interactions without visual weight.
 - **Font Pair**: `Geist` (display & body, 400/500) + `Geist Mono` (code & metadata).
 
 ---
@@ -82,10 +86,11 @@
 - **主角素材 (Lead Material)**: Live domain badges (`tik.pylexia.fun`, `sh.pylexia.fun`) treated as technical proof alongside open-source GitHub stats.
 - **form 来自内容的哪里 (Form Grounded in Content)**: Direct alignment with Arifin's active open-source footprint (4 live web apps + Arch Linux dotfiles on GitHub).
 - **Proposed Palette**:
-  - Off-White Canvas: `#FAFAF8` (L 0.97, C 0.008, H 90)
-  - Deep Charcoal: `#222222` (L 0.20, C 0.0)
-  - Pine Sage Accent: `#2E7D5E` (L 0.50, C 0.09, H 155)
-  - *Justification*: Open-source ecosystem aesthetic: clean, friendly, readable, and documentation-inspired.
+  - Chromatic Primary: Pine Sage `#2E7D5E` (L 0.50, C 0.12, H 155 — verified domain badges & category labels)
+  - Chromatic Secondary: Rust Ochre `#C26127` (L 0.55, C 0.14, H 50 — star indicators & active hover accent)
+  - Neutral Base: Off-White Canvas `#FAFAF8` (L 0.97, C 0.008, H 90)
+  - Neutral Body: Deep Charcoal `#222222` (L 0.20, C 0.0)
+  - *Justification*: Open-source ecosystem documentation warmth — forest green library badges complemented by earthy ochre markers.
 - **Font Pair**: `Inter` (body & display, 400/600) + `JetBrains Mono` (domain labels & paths).
 
 ---
@@ -103,10 +108,11 @@
 - **主角素材 (Lead Material)**: Live interactive projects (`tik`, `sh`, `bot`, `ani`) rendered as interactive cards with monospace category markers and live URLs.
 - **form 来自内容的哪里 (Form Grounded in Content)**: Dual nature of Arifin's profile: Information Systems academic identity remains anchored on the left while practical Linux tools scroll on the right.
 - **Proposed Palette**:
-  - Deep Navy Slate: `#0B132B` (L 0.16, C 0.035, H 245)
-  - Slate Muted: `#8892B0` (L 0.62, C 0.025, H 245)
-  - Mint Glow Accent: `#64FFDA` (L 0.88, C 0.14, H 175)
-  - *Justification*: Industry-standard developer portfolio baseline providing instant developer credibility and high text contrast.
+  - Chromatic Primary: Mint Glow `#64FFDA` (L 0.88, C 0.14, H 175 — primary active links, pill tags, indicator dots)
+  - Chromatic Secondary: Electric Cyan `#38BDF8` (L 0.74, C 0.13, H 225 — secondary metadata & repository links)
+  - Neutral Base: Deep Navy Slate `#0B132B` (L 0.16, C 0.035, H 245)
+  - Neutral Body: Slate Muted `#8892B0` (L 0.62, C 0.025, H 245)
+  - *Justification*: Dual-tone neon spectrum (mint + electric cyan) slicing through deep navy slate for authentic terminal/editor luminescence.
 - **Font Pair**: `Inter` (display & body) + `Fira Code` (numbered labels & tags).
 
 ---
@@ -124,11 +130,12 @@
 - **主角素材 (Lead Material)**: Monumental typographic identity statement (`ARIFIN.` / `04 UTILITIES`) and stark black-on-white data rows.
 - **form 来自内容的哪里 (Form Grounded in Content)**: Reflects Arifin's direct "Practical builder. Code as proof" philosophy: zero decorative gradients, pure functional impact.
 - **Proposed Palette**:
-  - Cadmium Vermilion: `#E60012` (L 0.52, C 0.22, H 30)
-  - Crisp Pure White: `#FFFFFF` (L 1.0, C 0.0)
-  - Solid Black: `#0A0A0A` (L 0.10, C 0.0)
-  - Neutral Fog: `#F4F4F4` (L 0.96, C 0.0)
-  - *Justification*: Sato Kashiwa's signature high-clarity brand grammar — memorable at first glance, completely non-generic.
+  - Chromatic Primary: Cadmium Vermilion `#E60012` (L 0.52, C 0.22, H 30 — billboard field & heroic initials)
+  - Chromatic Secondary: Cobalt Ultramarine `#1034A6` (L 0.38, C 0.18, H 260 — contrasting indicator blocks & active badges)
+  - Neutral Base: Crisp Pure White `#FFFFFF` (L 1.0, C 0.0)
+  - Neutral Ink: Solid Black `#0A0A0A` (L 0.10, C 0.0)
+  - Neutral Surface: Neutral Fog `#F4F4F4` (L 0.96, C 0.0)
+  - *Justification*: Sato Kashiwa's signature primary-color clash (cadmium vermilion against cobalt ultramarine on stark white) maximizing graphic impact and brand clarity.
 - **Font Pair**: `Archivo Black` (display billboard) + `Inter` (structural content).
 
 ---
@@ -139,7 +146,7 @@
 |---|---|---|---|---|
 | 1 | Kenya Hara (原研哉) | Best Designer | Calm, literary, spacious | Asymmetric single-column, ample negative space |
 | 2 | Experimental Jetset | Best Designer | Bold, structural, modular | 4-quadrant Swiss grid with 1.5px black borders |
-| 3 | Paco Coursey (`paco.me`) | Real Reference | Quiet, crafted, dark | 580px centered minimal text stream |
+| 3 | Paco Coursey (`paco.me`) | Real Reference | Quiet, crafted, minimal | 580px centered minimal text stream |
 | 4 | Anthony Fu (`antfu.me`) | Real Reference | Neutral, open-source dev | 720px categorized project index, open rows |
 | 5 | Dark Editorial (#11 Web) | Style Roulette Web | Technical, engineering-led | Fixed 40% left sidebar + 60% scrollable right feed |
 | 6 | Sato Minimal Symbol (#11 East) | Style Roulette East | Bold, graphic billboard | 50/50 split-screen color block & data sheet |
