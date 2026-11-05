@@ -1,7 +1,7 @@
 ---
 /**
  * Header / Titlebar — Experimental Jetset
- * Name headline + role meta + raw ruled action links
+ * Name headline + role meta + raw ruled action links + Theme Toggle
  */
 ---
 
@@ -10,11 +10,66 @@
     <h1 class="titlebar__name">Arifin.</h1>
     <p class="titlebar__role">Information Systems Undergraduate</p>
   </div>
-  <nav class="titlebar__socials" aria-label="Social links">
-    <a href="https://github.com/HyuraFE" class="titlebar__link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-    <a href="mailto:notohyura@gmail.com" class="titlebar__link">Email ✉</a>
-  </nav>
+  <div class="titlebar__actions">
+    <button
+      id="theme-toggle"
+      class="titlebar__link theme-toggle-btn"
+      type="button"
+      aria-label="Toggle dark/light theme"
+      title="Toggle theme (Light / Dark / System)"
+    >
+      <span class="theme-icon theme-icon--light" aria-hidden="true">☀</span>
+      <span class="theme-icon theme-icon--dark" aria-hidden="true">☾</span>
+      <span class="theme-label" id="theme-status">THEME</span>
+    </button>
+    <nav class="titlebar__socials" aria-label="Social links">
+      <a href="https://github.com/HyuraFE" class="titlebar__link" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      <a href="mailto:notohyura@gmail.com" class="titlebar__link">Email ✉</a>
+    </nav>
+  </div>
 </header>
+
+<script is:inline>
+  (function () {
+    const btn = document.getElementById('theme-toggle');
+    const label = document.getElementById('theme-status');
+    const media = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function updateLabel(theme) {
+      if (!label) return;
+      label.textContent = theme === 'dark' ? 'DARK' : 'LIGHT';
+    }
+
+    const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    updateLabel(currentTheme);
+
+    if (btn) {
+      btn.addEventListener('click', () => {
+        const isDark = document.documentElement.classList.contains('dark');
+        const next = isDark ? 'light' : 'dark';
+        if (next === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        localStorage.setItem('theme', next);
+        updateLabel(next);
+      });
+    }
+
+    media.addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        if (e.matches) {
+          document.documentElement.classList.add('dark');
+          updateLabel('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+          updateLabel('light');
+        }
+      }
+    });
+  })();
+</script>
 
 <style>
   .titlebar {
@@ -45,7 +100,7 @@
     font-weight: 800;
     font-size: clamp(28px, 4vw, 44px);
     line-height: 1.1;
-    color: var(--color-black);
+    color: var(--color-text);
     letter-spacing: -0.02em;
   }
 
@@ -64,21 +119,27 @@
     }
   }
 
-  .titlebar__socials {
+  .titlebar__actions {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    align-items: end;
+    align-items: flex-end;
   }
 
   @media (max-width: 768px) {
-    .titlebar__socials {
+    .titlebar__actions {
       flex-direction: row;
       flex-wrap: wrap;
       align-items: center;
       justify-content: flex-start;
+      gap: 8px;
       width: 100%;
     }
+  }
+
+  .titlebar__socials {
+    display: flex;
+    gap: 8px;
   }
 
   .titlebar__link {
@@ -92,17 +153,38 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 6px;
     white-space: nowrap;
     text-decoration: none;
-    color: var(--color-black);
+    color: var(--color-text);
     background: transparent;
+    cursor: pointer;
+    box-sizing: border-box;
   }
 
   .titlebar__link:hover,
   .titlebar__link:focus {
-    background: var(--color-black);
-    color: var(--color-white);
+    background: var(--color-surface-contrast);
+    color: var(--color-text-on-contrast);
     text-decoration: none;
-    border-color: var(--color-black);
+    border-color: var(--color-line);
+  }
+
+  .theme-toggle-btn {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  :global(html.dark) .theme-icon--light {
+    display: none;
+  }
+  :global(html.dark) .theme-icon--dark {
+    display: inline;
+  }
+  :global(html:not(.dark)) .theme-icon--light {
+    display: inline;
+  }
+  :global(html:not(.dark)) .theme-icon--dark {
+    display: none;
   }
 </style>

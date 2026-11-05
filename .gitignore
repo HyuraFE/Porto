@@ -35,4 +35,5 @@ pnpm-debug.log*
 .impeccable/
 .superpowers/
 docs/
-!docs/superpowers/
+docs/superpowers/
+design-demos/
