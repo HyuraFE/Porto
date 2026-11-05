@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Redesign — 6 Candidate Thumbnails</title>
+<!-- Google Fonts for all 6 candidates -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&family=Inter:wght@300;400;500;600&family=Archivo:wght@400;800&family=JetBrains+Mono:wght@400;500&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Fira+Code:wght@400;500&family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --canvas-w: 1440px;
+    --canvas-h: 900px;
+    --scale: 0.33333333;
+    --cell-w: 480px;
+    --cell-h: 300px;
+    --gap: 32px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Inter, system-ui, sans-serif;
+    background: #f0efe9;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 40px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #181816;
+  }
+  h1 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-weight: 300;
+    font-size: 36px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    color: #181816;
+  }
+  .subtitle { color: #666; margin-bottom: 40px; font-size: 15px; max-width: 800px; text-align: center; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+    max-width: calc(3 * var(--cell-w) + 2 * var(--gap));
+    width: 100%;
+  }
+  .cell {
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+  }
+  .canvas-wrapper {
+    width: var(--cell-w);
+    height: var(--cell-h);
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+  }
+  .canvas {
+    width: var(--canvas-w);
+    height: var(--canvas-h);
+    transform-origin: 0 0;
+    transform: scale(var(--scale));
+    position: relative;
+  }
+  .label {
+    padding: 14px 16px 16px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    font-weight: 500;
+    color: #444;
+    background: #fafafa;
+    border-top: 1px solid #eee;
+    text-align: center;
+  }
+
+  /* ========================================
+     CANDIDATE 1: Kenya Hara (原研哉)
+     Warm paper, single column, vast negative space, vermilion seal
+     ======================================== */
+  .c1 .canvas {
+    background: #F7F6F2;
+    font-family: "Source Serif 4", Georgia, serif;
+    color: #181816;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 100px 0 0 calc(15vw + 40px);
+    position: relative;
+  }
+  .c1 .portrait {
+    width: 280px;
+    height: 373px;
+    object-fit: cover;
+    border: none;
+    box-shadow: none;
+  }
+  .c1 .name {
+    font-weight: 300;
+    font-size: 44px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-top: 36px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .c1 .seal {
+    width: 14px;
+    height: 14px;
+    background: #D9381E;
+    flex-shrink: 0;
+  }
+  .c1 .tagline {
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    line-height: 1.8;
+    font-weight: 300;
+    color: #181816;
+    opacity: 0.75;
+    max-width: 720px;
+    margin-top: 24px;
+  }
+  .c1 .scroll-hint {
+    position: absolute;
+    bottom: 60px;
+    left: calc(15vw + 40px);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    color: #181816;
+    opacity: 0.4;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* ========================================
+     CANDIDATE 2: Experimental Jetset
+     4-col Swiss grid, 1.5px black borders, signal blue, monospace
+     ======================================== */
+  .c2 .canvas {
+    background: #FFFFFF;
+    font-family: Archivo, sans-serif;
+    color: #0A0A0A;
+    border: 3px solid #0A0A0A;
+    display: grid;
+    grid-template-columns: 480px 1fr;
+    grid-template-rows: 520px 1fr;
+    gap: 0;
+  }
+  .c2 .hero-area {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    border-right: 3px solid #0A0A0A;
+    border-bottom: 3px solid #0A0A0A;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+  }
+  .c2 .portrait {
+    width: 200px;
+    height: 266px;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(130%);
+    border: 2px solid #0A0A0A;
+  }
+  .c2 .name {
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .c2 .role {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    color: #0A0A0A;
+    text-align: center;
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+  }
+  .c2 .info-area {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    border-bottom: 3px solid #0A0A0A;
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #FAFAFA;
+  }
+  .c2 .info-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    letter-spacing: 0.1em;
+    color: #0A0A0A;
+  }
+  .c2 .info-line {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 18px;
+    color: #0A0A0A;
+    line-height: 2.2;
+    border-bottom: 1px solid #E5E5E5;
+    display: flex;
+    justify-content: space-between;
+  }
+  .c2 .info-line span { color: #666; }
+  .c2 .project-list {
+    grid-column: 1 / 3;
+    grid-row: 2 / 3;
+    padding: 30px 40px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+  .c2 .project-item {
+    border-left: 3px solid #0A0A0A;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .c2 .project-title {
+    font-family: Archivo, sans-serif;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+  .c2 .project-desc {
+    font-size: 13px;
+    color: #444;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+  .c2 .project-url {
+    color: #0022FF;
+    text-decoration: underline;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .c2 .status-dot {
+    width: 10px;
+    height: 10px;
+    background: #FF5500;
+    display: inline-block;
+    margin-right: 8px;
+  }
+
+  /* ========================================
+     CANDIDATE 3: Paco Coursey (paco.me)
+     Narrow centered column, quiet typography, subtle grey dividers
+     ======================================== */
+  .c3 .canvas {
+    background: #FFFFFF;
+    font-family: Geist, -apple-system, sans-serif;
+    color: #111111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 80px 60px;
+  }
+  .c3 .portrait {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #E5E5E5;
+  }
+  .c3 .name {
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 1.2;
+    margin-top: 24px;
+    letter-spacing: -0.02em;
+  }
+  .c3 .tagline {
+    font-size: 19px;
+    line-height: 1.6;
+    color: #444;
+    margin-top: 14px;
+    max-width: 620px;
+    text-align: center;
+  }
+  .c3 .divider {
+    width: 100%;
+    max-width: 620px;
+    height: 1px;
+    background: #EBEBEB;
+    margin: 36px 0 28px;
+  }
+  .c3 .projects {
+    width: 100%;
+    max-width: 620px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .c3 .project-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    padding: 8px 0;
+  }
+  .c3 .project-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.4;
+    color: #111111;
+  }
+  .c3 .project-meta {
+    font-family: "Geist Mono", monospace;
+    font-size: 15px;
+    color: #3B82F6;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ========================================
+     CANDIDATE 4: Anthony Fu (antfu.me)
+     720px centered column, categorized open rows, warm off-white, pine sage badges
+     ======================================== */
+  .c4 .canvas {
+    background: #FAFAF8;
+    font-family: Inter, sans-serif;
+    color: #222222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 90px 80px 60px;
+  }
+  .c4 .header {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    gap: 36px;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+  .c4 .avatar-wrap { flex-shrink: 0; }
+  .c4 .portrait {
+    width: 130px;
+    height: 173px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid #E2DED6;
+  }
+  .c4 .intro { flex: 1; }
+  .c4 .name {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .c4 .role {
+    font-size: 19px;
+    line-height: 1.6;
+    color: #555555;
+    margin-top: 10px;
+  }
+  .c4 .stack-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  .c4 .stack-tag {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 13px;
+    background: #EBE7DF;
+    color: #2E7D5E;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  .c4 .sections {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+  .c4 .section-title {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2E7D5E;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 14px;
+  }
+  .c4 .project-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding: 14px 0;
+    border-bottom: 1px solid #EAE6DE;
+  }
+  .c4 .project-title { font-weight: 500; font-size: 19px; }
+  .c4 .project-badge {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    background: #2E7D5E;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .c4 .project-desc {
+    font-size: 15px;
+    color: #666666;
+    margin-top: 4px;
+  }
+
+  /* ========================================
+     CANDIDATE 5: Dark Editorial (Brittany Chiang style)
+     Asymmetric 2-col: fixed 40% left sidebar, 60% right scrollable
+     ======================================== */
+  .c5 .canvas {
+    background: #0B132B;
+    font-family: Inter, sans-serif;
+    color: #8892B0;
+    display: grid;
+    grid-template-columns: 42% 58%;
+    grid-template-rows: 100%;
+    height: 100%;
+  }
+  .c5 .sidebar {
+    background: #0F172A;
+    padding: 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid #1E2A4A;
+  }
+  .c5 .name {
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 1.15;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+  }
+  .c5 .role {
+    font-family: "Fira Code", monospace;
+    font-size: 17px;
+    color: #64FFDA;
+    margin-top: 14px;
+    font-weight: 500;
+  }
+  .c5 .bio {
+    font-size: 18px;
+    line-height: 1.7;
+    margin-top: 28px;
+    max-width: 360px;
+    color: #94A3B8;
+  }
+  .c5 .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 36px;
+  }
+  .c5 .nav-item {
+    font-family: "Fira Code", monospace;
+    font-size: 15px;
+    color: #94A3B8;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .c5 .nav-item::before { content: "01."; color: #64FFDA; font-weight: 600; }
+  .c5 .nav-item:nth-child(2)::before { content: "02."; }
+  .c5 .nav-item:nth-child(3)::before { content: "03."; }
+  .c5 .nav-item:nth-child(4)::before { content: "04."; }
+  .c5 .social {
+    display: flex;
+    gap: 20px;
+    margin-top: 32px;
+  }
+  .c5 .social a {
+    color: #94A3B8;
+    font-size: 20px;
+    font-family: "Fira Code", monospace;
+    text-decoration: none;
+  }
+  .c5 .content {
+    padding: 80px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .c5 .section-title {
+    font-family: "Fira Code", monospace;
+    font-size: 15px;
+    font-weight: 600;
+    color: #64FFDA;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 28px;
+  }
+  .c5 .project-card {
+    background: #17213B;
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    border: 1px solid #1E2A4A;
+  }
+  .c5 .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 10px;
+  }
+  .c5 .project-title { font-weight: 600; font-size: 20px; color: #FFFFFF; }
+  .c5 .project-tags { display: flex; gap: 8px; }
+  .c5 .tag {
+    font-family: "Fira Code", monospace;
+    font-size: 13px;
+    background: rgba(100,255,218,0.12);
+    color: #64FFDA;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+  .c5 .project-desc { font-size: 16px; line-height: 1.6; color: #94A3B8; }
+  .c5 .project-link {
+    color: #38BDF8;
+    text-decoration: none;
+    font-family: "Fira Code", monospace;
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+
+  /* ========================================
+     CANDIDATE 6: Sato Minimal Symbol (佐藤可士和)
+     50/50 split: cadmium vermilion field + massive type, white data sheet
+     ======================================== */
+  .c6 .canvas {
+    background: #FFFFFF;
+    font-family: Inter, sans-serif;
+    color: #0A0A0A;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+    height: 100%;
+  }
+  .c6 .left {
+    background: #E60012;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 80px 40px 40px;
+    position: relative;
+  }
+  .c6 .hero-text {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 0.95;
+    color: #FFFFFF;
+    letter-spacing: -0.04em;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .c6 .hero-sub {
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.9);
+    text-align: center;
+    max-width: 440px;
+    margin-bottom: 40px;
+  }
+  .c6 .portrait-wrap {
+    display: flex;
+    justify-content: center;
+  }
+  .c6 .portrait {
+    width: 200px;
+    height: 266px;
+    object-fit: cover;
+    border: 4px solid #FFFFFF;
+    box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+  }
+  .c6 .right {
+    background: #FFFFFF;
+    padding: 80px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .c6 .section-label {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: #1034A6;
+    letter-spacing: 0.15em;
+    margin-bottom: 36px;
+  }
+  .c6 .data-rows { display: flex; flex-direction: column; gap: 20px; }
+  .c6 .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 1.5px solid #F0F0F0;
+  }
+  .c6 .row-label {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 16px;
+    color: #0A0A0A;
+    letter-spacing: 0.05em;
+  }
+  .c6 .row-value {
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    color: #444;
+    text-align: right;
+  }
+  .c6 .row-value strong { color: #0A0A0A; font-weight: 600; }
+  .c6 .indicator {
+    width: 14px;
+    height: 14px;
+    background: #1034A6;
+    margin-left: 16px;
+    flex-shrink: 0;
+  }
+
+  /* Responsive: stack on narrow viewports */
+  @media (max-width: 1100px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 750px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<h1>Portfolio Redesign — Candidate Thumbnails</h1>
+<p class="subtitle">Six directions at 480×300 (scaled from 1440×900). Each cell shows the hero/first-screen composition with real fonts, real palettes, real content.</p>
+
+<div class="grid">
+  <!-- CANDIDATE 1 -->
+  <div class="cell c1">
+    <div class="canvas-wrapper">
+      <div class="canvas">
+        <img src="../public/images/profile.webp" alt="Muhammad Arifin" class="portrait" loading="eager">
+        <div class="name">Muhammad Arifin<span class="seal" aria-hidden="true"></span></div>
+        <p class="tagline">Practical builder, tool maker, daily Linux driver (Arch + Hyprland). Code as proof of capability.</p>
+        <div class="scroll-hint">scroll</div>
+      </div>
+    </div>
+    <div class="label">#1 — Kenya Hara (原研哉)</div>
+  </div>
+
+  <!-- CANDIDATE 2 -->
+  <div class="cell c2">
+    <div class="canvas-wrapper">
+      <div class="canvas">
+        <div class="hero-area">
+          <img src="../public/images/profile.webp" alt="Muhammad Arifin" class="portrait" loading="eager">
+          <div class="name">MUHAMMAD<br>ARIFIN</div>
+          <div class="role">INFORMATION SYSTEMS / ARCH LINUX</div>
+        </div>
+        <div class="info-area">
+          <div class="info-title">ENVIRONMENT</div>
+          <div class="info-line"><span>OS</span><span>Arch Linux (Rolling)</span></div>
+          <div class="info-line"><span>WM</span><span>Hyprland (Wayland)</span></div>
+          <div class="info-line"><span>Term</span><span>Kitty (GPU)</span></div>
+          <div class="info-line"><span>Shell</span><span>Fish</span></div>
+          <div class="info-line"><span>Editor</span><span>VSCodium</span></div>
+        </div>
+        <div class="project-list">
+          <div class="project-item">
+            <span class="project-title">TIKTOK DL</span>
+            <div class="project-desc">Watermark-free video downloader</div>
+            <a href="https://tik.pylexia.fun" class="project-url" target="_blank">tik.pylexia.fun</a>
+          </div>
+          <div class="project-item">
+            <span class="project-title">SHRTNR</span>
+            <div class="project-desc">URL shortener, custom slugs</div>
+            <a href="https://sh.pylexia.fun" class="project-url" target="_blank">sh.pylexia.fun</a>
+          </div>
+          <div class="project-item">
+            <span class="project-title">CHATBOT AI</span>
+            <div class="project-desc">Gemini & GPT multi-model agent</div>
+            <a href="https://bot.pylexia.fun" class="project-url" target="_blank">bot.pylexia.fun</a>
+          </div>
+          <div class="project-item">
+            <span class="project-title">MANGA TRACKER</span>
+            <div class="project-desc">Reading log for Manga & LN</div>
+            <a href="https://ani.pylexia.fun" class="project-url" target="_blank">ani.pylexia.fun</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="label">#2 — Experimental Jetset</div>
+  </div>
+
+  <!-- CANDIDATE 3 -->
+  <div class="cell c3">
+    <div class="canvas-wrapper">
+      <div class="canvas">
+        <img src="../public/images/profile.webp" alt="Muhammad Arifin" class="portrait" loading="eager">
+        <div class="name">Muhammad Arifin</div>
+        <p class="tagline">Practical builder, tool maker, daily Linux driver (Arch + Hyprland). Code as proof of capability.</p>
+        <div class="divider"></div>
+        <div class="projects">
+          <div class="project-row">
+            <span class="project-title">TikTok Videos Downloader</span>
+            <span class="project-meta">tik.pylexia.fun</span>
+          </div>
+          <div class="project-row">
+            <span class="project-title">Shrtnr — URL Shortener</span>
+            <span class="project-meta">sh.pylexia.fun</span>
+          </div>
+          <div class="project-row">
+            <span class="project-title">Chatbot AI — Gemini & GPT</span>
+            <span class="project-meta">bot.pylexia.fun</span>
+          </div>
+          <div class="project-row">
+            <span class="project-title">Manga Tracker — Reading Log</span>
+            <span class="project-meta">ani.pylexia.fun</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="label">#3 — Paco Coursey (paco.me)</div>
+  </div>
+
+  <!-- CANDIDATE 4 -->
+  <div class="cell c4">
+    <div class="canvas-wrapper">
+      <div class="canvas">
+        <div class="header">
+          <div class="avatar-wrap">
+            <img src="../public/images/profile.webp" alt="Muhammad Arifin" class="portrait" loading="eager">
+          </div>
+          <div class="intro">
+            <div class="name">Muhammad Arifin</div>
+            <div class="role">Information Systems Undergraduate · Arch Linux · Hyprland</div>
+            <div class="stack-row">
+              <span class="stack-tag">Arch Linux</span>
+              <span class="stack-tag">Hyprland</span>
+              <span class="stack-tag">Kitty</span>
+              <span class="stack-tag">Fish</span>
+              <span class="stack-tag">VSCodium</span>
+            </div>
+          </div>
+        </div>
+        <div class="sections">
+          <div>
+            <div class="section-title">Projects</div>
+            <div class="project-row">
+              <div>
+                <div class="project-title">TikTok Videos Downloader</div>
+                <div class="project-desc">Watermark-free TikTok video downloader utility</div>
+              </div>
+              <span class="project-badge">LIVE</span>
+            </div>
+            <div class="project-row">
+              <div>
+                <div class="project-title">Shrtnr — URL Shortener</div>
+                <div class="project-desc">Bitly alternative, custom slugs</div>
+              </div>
+              <span class="project-badge">LIVE</span>
+            </div>
+            <div class="project-row">
+              <div>
+                <div class="project-title">Chatbot AI</div>
+                <div class="project-desc">Gemini & ChatGPT backed conversational agent</div>
+              </div>
+              <span class="project-badge">LIVE</span>
+            </div>
+            <div class="project-row">
+              <div>
+                <div class="project-title">Manga Tracker</div>
+                <div class="project-desc">Reading tracker for Manga & Light Novels</div>
+              </div>
+              <span class="project-badge">LIVE</span>
+            </div>
+          </div>
+          <div>
+            <div class="section-title">Uses / Hardware</div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;line-height:2;color:#222;opacity:0.7;">Asus Vivobook Go 14 · Arch Linux · Hyprland · Kitty · Fish · VSCodium</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="label">#4 — Anthony Fu (antfu.me)</div>
+  </div>
+
+  <!-- CANDIDATE 5 -->
+  <div class="cell c5">
+    <div class="canvas-wrapper">
+      <div class="canvas">
+        <div class="sidebar">
+          <div>
+            <div class="name">Muhammad Arifin</div>
+            <div class="role">01. Information Systems</div>
+            <p class="bio">Practical builder, tool maker, daily Linux driver (Arch + Hyprland). Code as proof of capability.</p>
+            <nav class="nav">
+              <a href="#" class="nav-item">Projects</a>
+              <a href="#" class="nav-item">Environment</a>
+              <a href="#" class="nav-item">Writing</a>
+              <a href="#" class="nav-item">Contact</a>
+            </nav>
+          </div>
+          <div class="social">
+            <a href="https://github.com/HyuraFE" target="_blank" aria-label="GitHub">⬢</a>
+            <a href="mailto:notohyura@gmail.com" aria-label="Email">✉</a>
+          </div>
+        </div>
+        <div class="content">
+          <div class="section-title">Featured Projects</div>
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">TikTok Videos Downloader</h3>
+              <div class="project-tags"><span class="tag">Go</span><span class="tag">FFmpeg</span></div>
+            </div>
+            <p class="project-desc">Watermark-free TikTok video downloader utility. Clean extraction, multiple quality options.</p>
+            <a href="https://tik.pylexia.fun" class="project-link" target="_blank">tik.pylexia.fun →</a>
+          </article>
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Shrtnr</h3>
+              <div class="project-tags"><span class="tag">TypeScript</span><span class="tag">Redis</span></div>
+            </div>
+            <p class="project-desc">URL shortener utility, Bitly alternative. Custom slugs, analytics, QR codes.</p>
+            <a href="https://sh.pylexia.fun" class="project-link" target="_blank">sh.pylexia.fun →</a>
+          </article>
+          <article class="project-card">
+            <div class="project-header">
+              <h3 class="project-title">Chatbot AI</h3>
+              <div class="project-tags"><span class="tag">Python</span><span class="tag">Gemini</span><span class="tag">GPT</span></div>
+            </div>
+            <p class="project-desc">Conversational AI agent backed by Gemini and ChatGPT models. Multi-model routing.</p>
+            <a href="https://bot.pylexia.fun" class="project-link" target="_blank">bot.pylexia.fun →</a>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div class="label">#5 — Dark Editorial (#11 Web)</div>
+  </div>
+
+  <!-- CANDIDATE 6 -->
+  <div class="cell c6">
+    <div class="canvas-wrapper">
+      <div class="canvas">
+        <div class="left">
+          <div class="hero-text">ARIFIN.</div>
+          <p class="hero-sub">Practical builder, tool maker, daily Linux driver (Arch + Hyprland). Code as proof of capability.</p>
+          <div class="portrait-wrap">
+            <img src="../public/images/profile.webp" alt="Muhammad Arifin" class="portrait" loading="eager">
+          </div>
+        </div>
+        <div class="right">
+          <div class="section-label">04 UTILITIES</div>
+          <div class="data-rows">
+            <div class="row">
+              <span class="row-label">TIKTOK DL</span>
+              <span class="row-value"><strong>tik.pylexia.fun</strong> — Go + FFmpeg</span>
+              <span class="indicator"></span>
+            </div>
+            <div class="row">
+              <span class="row-label">SHRTNR</span>
+              <span class="row-value"><strong>sh.pylexia.fun</strong> — TypeScript + Redis</span>
+              <span class="indicator"></span>
+            </div>
+            <div class="row">
+              <span class="row-label">CHATBOT AI</span>
+              <span class="row-value"><strong>bot.pylexia.fun</strong> — Python + Gemini/GPT</span>
+              <span class="indicator"></span>
+            </div>
+            <div class="row">
+              <span class="row-label">MANGA TRACKER</span>
+              <span class="row-value"><strong>ani.pylexia.fun</strong> — Next.js + Prisma</span>
+              <span class="indicator"></span>
+            </div>
+            <div class="row">
+              <span class="row-label">ENVIRONMENT</span>
+              <span class="row-value"><strong>Arch / Hyprland / Kitty / Fish / VSCodium</strong></span>
+            </div>
+            <div class="row">
+              <span class="row-label">DOTFILES</span>
+              <span class="row-value"><strong>github.com/HyuraFE/dotfiles</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="label">#6 — Sato Minimal Symbol (#11 East)</div>
+  </div>
+</div>
+</body>
+</html>
