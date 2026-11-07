@@ -4,17 +4,17 @@
 
 :root {
   --color-white: #FFFFFF;
-  --color-black: #03045e;
+  --color-black: #0A0A0A;
   --color-blue: #0022FF;
   --color-amber: #FF5500;
   --color-line: #0A0A0A;
   --color-bg: #FFFFFF;
   --color-surface: #FFFFFF;
   --color-surface-hover: #F5F5F5;
-  --color-surface-contrast: #03045e;
+  --color-surface-contrast: #0A0A0A;
   --color-text-on-contrast: #FFFFFF;
-  --color-text: #03045e;
-  --color-text-muted: #1d3557;
+  --color-text: #0A0A0A;
+  --color-text-muted: #555555;
   --font-display: 'Archivo', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-body: 'Inter', sans-serif;
@@ -24,26 +24,29 @@
   --gap-sm: 12px;
 }
 
-/* Ocean Breeze Dark Theme
-   Deep Twilight #03045e (bg)
-   Bright Teal Blue #0077b6 (accents/buttons/lines)
-   Turquoise Surf #00b4d8 (interactive/links)
-   Frosted Blue #90e0ef (secondary text/subtle)
-   Light Cyan #caf0f8 (primary text/contrast)
+/* Midnight Slate & Electric Blue (Option 1)
+   Deep Charcoal Navy #0B0F19 (bg)
+   Dark Slate #111827 (surface / cards)
+   Slate Surface Hover #1E293B
+   Muted Border Line #1E293B
+   Electric Cobalt Blue #3B82F6 (primary accent / links)
+   Sky Blue Glow #60A5FA (hover / secondary accent)
+   Crisp White #F8FAFC (primary text / headings)
+   Muted Slate #94A3B8 (body / secondary text)
 */
 html.dark {
   --color-white: #FFFFFF;
-  --color-black: #03045e;
-  --color-blue: #00b4d8;
-  --color-amber: #90e0ef;
-  --color-line: #0077b6;
-  --color-bg: #03045e;
-  --color-surface: #060875;
-  --color-surface-hover: #0a0d91;
-  --color-surface-contrast: #0077b6;
-  --color-text-on-contrast: #caf0f8;
-  --color-text: #caf0f8;
-  --color-text-muted: #90e0ef;
+  --color-black: #0B0F19;
+  --color-blue: #3B82F6;
+  --color-amber: #60A5FA;
+  --color-line: #1E293B;
+  --color-bg: #0B0F19;
+  --color-surface: #111827;
+  --color-surface-hover: #1E293B;
+  --color-surface-contrast: #3B82F6;
+  --color-text-on-contrast: #FFFFFF;
+  --color-text: #F8FAFC;
+  --color-text-muted: #94A3B8;
 }
 
 @media (prefers-reduced-motion: reduce) {
