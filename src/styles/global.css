@@ -28,23 +28,24 @@
    Deep Charcoal Navy #0B0F19 (bg)
    Dark Slate #111827 (surface / cards)
    Slate Surface Hover #1E293B
-   Muted Border Line #1E293B
-   Electric Cobalt Blue #3B82F6 (primary accent / links)
-   Sky Blue Glow #60A5FA (hover / secondary accent)
+   Elevated Surface Contrast #161F30 (headers / footer)
+   Crisp Border Line #223049
+   Vivid Electric Cyan-Blue #38BDF8 (primary accent / links)
+   Cobalt Blue Glow #60A5FA (hover / secondary accent)
    Crisp White #F8FAFC (primary text / headings)
    Muted Slate #94A3B8 (body / secondary text)
 */
 html.dark {
   --color-white: #FFFFFF;
   --color-black: #0B0F19;
-  --color-blue: #3B82F6;
+  --color-blue: #38BDF8;
   --color-amber: #60A5FA;
-  --color-line: #1E293B;
+  --color-line: #223049;
   --color-bg: #0B0F19;
   --color-surface: #111827;
   --color-surface-hover: #1E293B;
-  --color-surface-contrast: #3B82F6;
-  --color-text-on-contrast: #FFFFFF;
+  --color-surface-contrast: #161F30;
+  --color-text-on-contrast: #F8FAFC;
   --color-text: #F8FAFC;
   --color-text-muted: #94A3B8;
 }
