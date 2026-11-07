@@ -40,7 +40,7 @@
     gap: var(--gap);
     margin-bottom: var(--gap);
     border: var(--line-thick) solid var(--color-line);
-    background: var(--color-white);
+    background: var(--color-surface);
   }
 
   @media (max-width: 1024px) {
@@ -86,7 +86,6 @@
     aspect-ratio: 3/4;
     object-fit: cover;
     border: var(--line-thick) solid var(--color-line);
-    filter: grayscale(100%) contrast(140%) brightness(90%);
   }
 
   .hero__panel--text {
@@ -99,7 +98,7 @@
     font-weight: 800;
     font-size: clamp(20px, 3vw, 32px);
     line-height: 1.2;
-    color: var(--color-black);
+    color: var(--color-text);
     letter-spacing: -0.01em;
     text-wrap: balance;
   }
@@ -127,8 +126,8 @@
     font-size: 12px;
     padding: 10px 16px;
     border: var(--line-thick) solid var(--color-line);
-    background: var(--color-black);
-    color: var(--color-white);
+    background: var(--color-surface-contrast);
+    color: var(--color-text-on-contrast);
     text-decoration: none;
     min-height: 44px;
     align-self: flex-start;
@@ -137,9 +136,9 @@
 
   .hero__cta:hover,
   .hero__cta:focus {
-    background: var(--color-amber);
-    color: var(--color-white);
-    border-color: var(--color-amber);
+    background: var(--color-blue);
+    color: var(--color-text-on-contrast);
+    border-color: var(--color-blue);
     text-decoration: none;
   }
 </style>

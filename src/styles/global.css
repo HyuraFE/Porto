@@ -10,6 +10,7 @@
   --color-line: #0A0A0A;
   --color-bg: #FFFFFF;
   --color-surface: #FFFFFF;
+  --color-surface-hover: #F5F5F5;
   --color-surface-contrast: #03045e;
   --color-text-on-contrast: #FFFFFF;
   --color-text: #03045e;
@@ -31,13 +32,14 @@
    Light Cyan #caf0f8 (primary text/contrast)
 */
 html.dark {
-  --color-white: #caf0f8;
+  --color-white: #FFFFFF;
   --color-black: #03045e;
   --color-blue: #00b4d8;
   --color-amber: #90e0ef;
   --color-line: #0077b6;
   --color-bg: #03045e;
   --color-surface: #060875;
+  --color-surface-hover: #0a0d91;
   --color-surface-contrast: #0077b6;
   --color-text-on-contrast: #caf0f8;
   --color-text: #caf0f8;
@@ -105,7 +107,7 @@ img {
 
 ::selection {
   background: var(--color-blue);
-  color: var(--color-white);
+  color: var(--color-text-on-contrast);
 }
 
 .grid-lines {
