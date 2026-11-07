@@ -4,13 +4,16 @@
 
 :root {
   --color-white: #FFFFFF;
-  --color-black: #0A0A0A;
+  --color-black: #03045e;
   --color-blue: #0022FF;
   --color-amber: #FF5500;
   --color-line: #0A0A0A;
   --color-bg: #FFFFFF;
-  --color-text: #0A0A0A;
-  --color-text-muted: #333333;
+  --color-surface: #FFFFFF;
+  --color-surface-contrast: #03045e;
+  --color-text-on-contrast: #FFFFFF;
+  --color-text: #03045e;
+  --color-text-muted: #1d3557;
   --font-display: 'Archivo', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
   --font-body: 'Inter', sans-serif;
@@ -18,6 +21,27 @@
   --line-thick: 2px;
   --gap: 24px;
   --gap-sm: 12px;
+}
+
+/* Ocean Breeze Dark Theme
+   Deep Twilight #03045e (bg)
+   Bright Teal Blue #0077b6 (accents/buttons/lines)
+   Turquoise Surf #00b4d8 (interactive/links)
+   Frosted Blue #90e0ef (secondary text/subtle)
+   Light Cyan #caf0f8 (primary text/contrast)
+*/
+html.dark {
+  --color-white: #caf0f8;
+  --color-black: #03045e;
+  --color-blue: #00b4d8;
+  --color-amber: #90e0ef;
+  --color-line: #0077b6;
+  --color-bg: #03045e;
+  --color-surface: #060875;
+  --color-surface-contrast: #0077b6;
+  --color-text-on-contrast: #caf0f8;
+  --color-text: #caf0f8;
+  --color-text-muted: #90e0ef;
 }
 
 @media (prefers-reduced-motion: reduce) {
