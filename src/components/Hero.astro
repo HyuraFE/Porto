@@ -27,9 +27,20 @@
     <p class="hero__persona">
       Arch + Hyprland. Code as proof of capability. Four live utilities, zero bloat.
     </p>
-    <a href="#proyek" class="hero__cta">
-      View Projects →
-    </a>
+    <div class="hero__actions">
+      <a href="#proyek" class="hero__cta">
+        View Projects →
+      </a>
+      <a
+        href="https://status.pylexia.fun"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hero__cta hero__cta--secondary"
+      >
+        <span class="hero__status-dot" aria-hidden="true"></span>
+        Uptime Status ↗
+      </a>
+    </div>
   </div>
 </section>
 
@@ -117,8 +128,15 @@
     }
   }
 
-  .hero__cta {
+  .hero__actions {
     margin-top: var(--gap-sm);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero__cta {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -132,6 +150,26 @@
     min-height: 44px;
     align-self: flex-start;
     transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .hero__cta--secondary {
+    background: transparent;
+    color: var(--color-text);
+  }
+
+  .hero__status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-green, #10b981);
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+  }
+
+  .hero__cta--secondary:hover,
+  .hero__cta--secondary:focus {
+    background: var(--color-surface);
+    border-color: var(--color-green, #10b981);
+    color: var(--color-text);
   }
 
   .hero__cta:hover,
