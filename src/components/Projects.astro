@@ -26,13 +26,23 @@ const projects = [
     description: "Tempat untuk mengawasi bacaan Manga atau Light Novel.",
     url: "https://ani.pylexia.fun",
   },
+  {
+    name: "AstRead App",
+    description: "Aplikasi Android native pembaca & pelacak novel offline-first dengan import EPUB.",
+    url: "https://github.com/HyuraFE/AstRead-App",
+  },
+  {
+    name: "Gridly",
+    description: "Platform link-in-bio modular multi-user SaaS bergaya bento grid neobrutalism.",
+    url: "https://github.com/HyuraFE/gridly",
+  },
 ];
 ---
 
 <section id="proyek" class="section" aria-labelledby="projects-title">
   <header class="section__header">
     <h2 id="projects-title" class="section__title">Proyek</h2>
-    <span class="section__count">4 LIVE</span>
+    <span class="section__count">{projects.length} PROJECTS</span>
   </header>
   <div class="section__body">
     <div class="projects__grid">
@@ -114,7 +124,7 @@ const projects = [
 
   .projects__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--line-thin);
   }
 
@@ -140,7 +150,7 @@ const projects = [
     transition: background 0.15s ease;
   }
 
-  .project-card:nth-child(4n) {
+  .project-card:nth-child(3n) {
     border-right: none;
   }
 
@@ -149,7 +159,7 @@ const projects = [
   }
 
   @media (max-width: 1024px) {
-    .project-card:nth-child(4n) {
+    .project-card:nth-child(3n) {
       border-right: var(--line-thin) solid var(--color-line);
     }
     .project-card:nth-child(2n) {
